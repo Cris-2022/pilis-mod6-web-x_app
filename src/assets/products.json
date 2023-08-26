@@ -1,0 +1,33 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Lomito completo",
+            "img": "imagen",
+            "categoria": "lomito",
+            "precio": "2600"
+        },
+        {
+            "id": 2,
+            "nombre": "Lomito light",
+            "img": "imagen",
+            "categoria": "lomito",
+            "precio": "2300"
+        },
+        {
+            "id": 3,
+            "nombre": "Lomito comun",
+            "img": "imagen",
+            "categoria": "lomito",
+            "precio": "2100"
+        },
+        {
+            "id": 4,
+            "nombre": "Hamburguesa completa",
+            "img": "imagen",
+            "categoria": "hamburguesa",
+            "precio": "2600"
+        }
+
+    ]
+}

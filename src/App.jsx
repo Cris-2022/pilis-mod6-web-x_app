@@ -1,7 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from './routes/home/home'
 import { Login } from './routes/login/login'
+import Product from './routes/product/Producto'
+import { Pedido } from './routes/pedido/Pedido'
 import './App.css'
+
 
 
 function App() {
@@ -17,9 +20,13 @@ function App() {
         <h2>Iniciar Seción</h2>
         </a>
       </header>
+   
       <Routes>
         <Route path='/' element= {<Home/>}/>
         <Route path='/Login' element= {<Login/>}/>
+        <Route path='/Producto' element= {<Product/>}/>
+        <Route path='/Pedido' element= {<Pedido/>}/>
+
       </Routes>
       
     </div>

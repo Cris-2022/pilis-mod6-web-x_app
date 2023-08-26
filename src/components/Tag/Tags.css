@@ -1,0 +1,19 @@
+.tag-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  border-radius: 10px;
+  margin-right: 20px;
+  padding: 20px;
+  transition: box-shadow 0.2s ease;
+  height: fit-content;
+}
+
+.tag-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.tag-title {
+  margin-bottom: 10px;
+}

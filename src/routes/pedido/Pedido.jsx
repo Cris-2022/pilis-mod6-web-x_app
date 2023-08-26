@@ -1,3 +1,3 @@
 import "./Pedido.css"
 
-export const Pedido = () => <h1> PEDIDOS </h1>
+export const Pedido = () => <h1> GESTION de PEDIDOS </h1>
