@@ -17,7 +17,7 @@ function App() {
         <h1>xApp</h1>
         <a href="/Login">
         <img src="../login.png" alt="" />
-        <h2>Iniciar Seción</h2>
+        <h2>Iniciar Sesión</h2>
         </a>
       </header>
    
