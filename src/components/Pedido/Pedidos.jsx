@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-import Producto from "./Producto"; 
-import './Productos.css'
-import json from "../../assets/products.json";
+import Pedido from "./Pedido"; 
+import './Pedidos.css'
+import json from "../../assets/pedidos.json";
 
 
-const Productos = () => {
-  const [prods, setProds] = useState(json.productos);
+const Pedidos = () => {
+  const [pedidoss, setPedidoss] = useState(json.pedidos);
   
 
   return (
 
-   <div className='col-2'>  
-      <button className='button-add'>
-       Nuevo
-      </button>
-    
+   <div className='col-5'>  
+      <h3>Recepción de Pedidos desde la app mobile</h3>    
     <div className='grid'>
       {
-        prods.map((product) => {
+        pedidoss.map((product) => {
           return ( 
-             <Producto
+             <Pedido
                key={product.id}
                nombre={product.nombre}
                imagen={product.img}
@@ -36,4 +33,4 @@ const Productos = () => {
   )
 }
 
-export default Productos;
+export default Pedidos;

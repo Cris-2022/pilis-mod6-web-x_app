@@ -5,7 +5,7 @@ const Tags = () => {
 
   return (
     <div className='tag-container'>
-      <h2 className='tag-title'>Dashboard</h2>
+      <h3 className='tag-title'>Dashboard</h3>
       <Menu></Menu>
     </div>
   );

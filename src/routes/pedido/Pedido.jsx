@@ -1,3 +1,18 @@
 import "./Pedido.css"
+import Pedidos from "../../components/Pedido/Pedidos"
+import Tags from '../../components/Tag/Tags';
 
-export const Pedido = () => <h1> GESTION de PEDIDOS </h1>
+const Pedido = () => {
+
+    return (
+
+    <div className='main-container'>  
+        <Tags>            
+        </Tags>   
+        <Pedidos/>        
+    </div>
+
+    )
+}
+
+export default Pedido

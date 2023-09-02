@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Home } from './routes/home/home'
 import { Login } from './routes/login/login'
 import Product from './routes/product/Producto'
-import { Pedido } from './routes/pedido/Pedido'
+import  Pedido  from './routes/pedido/Pedido'
 import './App.css'
 
 
@@ -16,8 +16,8 @@ function App() {
         </a>
         <h1>xApp</h1>
         <a href="/Login">
-        <img src="../login.png" alt="" />
-        <h2>Iniciar Sesión</h2>
+        <img src="../login.png" alt="" className='logo2' />
+        <h4>Cerrar Sesión</h4>
         </a>
       </header>
    

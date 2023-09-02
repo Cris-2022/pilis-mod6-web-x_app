@@ -1,4 +1,4 @@
-  .cookieCard {
+.cookieCard {
     width: 300px;
     height: 350px;
     background: rgb(235, 191, 111);
@@ -43,7 +43,7 @@
   
   .acceptButton {
     padding: 11px 20px;
-    background-color: #4d4a95;
+    background-color: #26a9e1;
     transition-duration: .2s;
     border: none;
     color: rgb(241, 241, 241);
@@ -64,7 +64,7 @@
   }
   
   .acceptButton:hover {
-    background-color: #714aff;
+    background-color: #4c4a95;
     transition-duration: .2s;
   }
 

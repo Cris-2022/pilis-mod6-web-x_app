@@ -16,7 +16,12 @@ function Menu() {
           <Navbar.Brand href="#home">Gestión Pedidos</Navbar.Brand>
         </Container>
       </Navbar>
-
+      <br />
+      <Navbar className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand href="#home">Pedidos entregados</Navbar.Brand>
+        </Container>
+      </Navbar>
       <br />
       <Navbar className="bg-body-tertiary">
         <Container>
