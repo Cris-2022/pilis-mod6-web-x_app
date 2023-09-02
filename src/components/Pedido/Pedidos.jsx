@@ -10,8 +10,9 @@ const Pedidos = () => {
 
   return (
 
-   <div className='col-5'>  
-      <h3>Recepción de Pedidos desde la app mobile</h3>    
+   <div className='col-3'>
+      <h2>Ordenes</h2> 
+      <h6>Gestione las ordenes desde aquí.</h6>    
     <div className='grid'>
       {
         pedidoss.map((product) => {

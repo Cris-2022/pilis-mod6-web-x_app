@@ -12,7 +12,7 @@ const Productos = () => {
 
    <div className='col-2'>  
       <button className='button-add'>
-       Nuevo
+       Agregar
       </button>
     
     <div className='grid'>

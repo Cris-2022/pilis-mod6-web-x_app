@@ -6,14 +6,14 @@ function Menu() {
     <>
       <br />
       <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">Gestión Productos</Navbar.Brand>
+        <Container>          
+          <Navbar.Brand href="/Producto">Gestión Productos</Navbar.Brand>
         </Container>
       </Navbar>
       <br />
       <Navbar className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Gestión Pedidos</Navbar.Brand>
+          <Navbar.Brand href="/Pedido">Gestión Ordenes</Navbar.Brand>
         </Container>
       </Navbar>
       <br />
