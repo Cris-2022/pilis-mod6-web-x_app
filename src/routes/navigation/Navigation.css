@@ -1,24 +1,23 @@
 .login {
-    text-decoration: none;
-  }
-  
-  .text-login {
-    color: #646cff;
-    margin: 0%;
-  }
-  
-  .text-login:hover {
-    color: #f1f1f5;
-  }
-  
-  header {
-    height: 6vh;
-    min-height: 55px;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    padding: 20px;
-    background: #4c4a95;
-  }
-  
+  text-decoration: none;
+}
+
+.text-login {
+  color: #646cff;
+  margin: 0%;
+}
+
+.text-login:hover {
+  color: #f1f1f5;
+}
+
+header {
+  height: 60vh;
+  min-height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #4c4a95;
+}

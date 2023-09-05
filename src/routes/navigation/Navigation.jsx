@@ -11,7 +11,7 @@ export const Navigation = () => {
             <h1>xApp</h1>
             <Link to="/Login" className='login'>
                 <img src="../login.png" alt="" />
-                <h2 className='text-login'>Iniciar Seción</h2>
+                <h3 className='text-login'>Iniciar Sesión</h3>
             </Link>
         </header>
         <Outlet/>
