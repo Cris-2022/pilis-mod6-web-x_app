@@ -26,3 +26,11 @@
     80%{transform: translateX(-300%);}
     100%{transform: translateX(-300%);}
 }
+
+/* TARJETAS */
+
+.grid-card {
+    max-width: max-content;
+    display:flex;
+    flex-direction: row;
+  }
