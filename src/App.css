@@ -2,8 +2,29 @@
   text-align: center;
 }
 
-/* NAVBAR */
-.logo {
-  height: 80px;
+
+header {
+  max-height: 140px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #4c4a95;
+  margin-bottom: 15px;
 }
 
+h1{
+  color: rgb(247, 249, 249);
+  text-align: left;
+  align-content: first baseline;
+}
+
+.logo{
+  width: 130px;
+  height: auto;
+}
+.logo2{
+  width: 80px;
+  height: auto;
+}

@@ -2,7 +2,10 @@ import { Route, Routes } from 'react-router-dom'
 import { Navigation } from './routes/navigation/Navigation'
 import { Home } from './routes/home/Home'
 import { Login } from './routes/login/login'
+import Product from './routes/product/Producto'
+import  Pedido  from './routes/pedido/Pedido'
 import './App.css'
+
 
 
 function App() {

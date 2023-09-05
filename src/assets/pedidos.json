@@ -1,0 +1,40 @@
+{
+    "pedidos": [
+        {
+            "id": 1,
+            "nombre": "Tiket N° 00026",
+            "img": "producto detalle",
+            "categoria": "en espera",
+            "precio": "6500"
+        },
+        {
+            "id": 2,
+            "nombre": "Tiket N° 00025",
+            "img": "producto detalle",
+            "categoria": "en espera",
+            "precio": "5300"
+        },
+        {
+            "id": 3,
+            "nombre": "Tiket N° 00024",
+            "img": "producto detalle",
+            "categoria": "en proceso",
+            "precio": "6500"
+        },
+        {
+            "id": 4,
+            "nombre": "Tiket N° 00023",
+            "img": "producto detalle",
+            "categoria": "en proceso",
+            "precio": "5800"
+        },
+        {
+            "id": 5,
+            "nombre": "Tiket N° 00022",
+            "img": "producto detalle",
+            "categoria": "en proceso",
+            "precio": "6200"
+        }
+
+    ]
+}
