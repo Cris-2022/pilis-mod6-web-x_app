@@ -1,3 +1,10 @@
+export const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+};
+
 export function createJsonBodyOptions(body?: object): RequestInit {
   const headers = { 'Content-Type': 'application/json' };
   const _body = JSON.stringify(body);
