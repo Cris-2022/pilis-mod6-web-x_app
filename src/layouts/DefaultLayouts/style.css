@@ -1,4 +1,34 @@
-.layout {
-    display: flex;
-    flex-direction: column;
+/* HEADER CSS */
+
+.Navigation {
+  padding: 20px;
+  min-height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  background: #4c4a95;
+}
+
+/* xApp */
+.Title {
+  margin: 0%;
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* Navbar */
+
+/* Inicio de Seción */
+.login {
+  text-decoration: none;
+}
+
+.text-login {
+  color: #646cff;
+  margin: 0%;
+}
+.text-login:hover {
+  color: #ffffff;
 }
