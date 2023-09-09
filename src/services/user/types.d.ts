@@ -1,3 +1,8 @@
+export interface Tokens {
+  bearer_token: string;
+  refresh_token: string;
+}
+
 export interface UserData {
   username: string;
   password: string;
