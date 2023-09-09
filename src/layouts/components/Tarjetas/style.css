@@ -1,0 +1,50 @@
+.card-container {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: 0, 5s;
+}
+.card-container:hover {
+  transform: translateY(-30px);
+  transition: 0.4s;
+}
+
+li {
+  list-style: none;
+}
+
+/* Estilos de cada tarjeta */
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90%;
+  /*     opacity: 0.6;
+    transition: 0, 5s; */
+}
+.li {
+  list-style: none;
+}
+
+.imgs {
+  margin: 10px 10px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  /*   border: 10px solid rgba(0,0,0,0.25); */
+  object-fit: cover;
+}

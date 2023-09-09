@@ -1,34 +1,18 @@
-import { useState } from 'react';
-import reactLogo from '@/assets/react.svg';
-import viteLogo from '/vite.svg';
+import { Tarjetas } from '../../layouts/components/Tarjetas';
+import './style.css';
 
-function Home() {
-  const [count, setCount] = useState(0);
-
+export default function Home() {
   return (
-    <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+    <div>
+      <section className='automatic'>
+        <img className='slider-imag' src='/src/assets/Carousel/1.jpg' alt='' />
+        <img className='slider-imag' src='/src/assets/Carousel/2.jpg' alt='' />
+        <img className='slider-imag' src='/src/assets/Carousel/3.jpg' alt='' />
+        <img className='slider-imag' src='/src/assets/Carousel/4.jpg' alt='' />
+      </section>
+      <div className='grid-card'>
+        <Tarjetas />
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
-
-export default Home;
