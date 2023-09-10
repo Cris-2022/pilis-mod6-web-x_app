@@ -1,7 +1,4 @@
-import {
-  METHODS,
-  createJsonBodyOptionsAuth,
-} from '@/src/utils/request-options';
+import { METHODS, createJsonBodyOptionsAuth } from '@/src/utils/request';
 
 import { PayloadAuth } from './types';
 import ENDPOINTS from '@/src/utils/endpoints';

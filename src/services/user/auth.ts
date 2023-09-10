@@ -1,6 +1,6 @@
 import ENDPOINTS from '@/src/utils/endpoints';
 import { PayloadAuth, ResponseAuth, Tokens, UserCredentials } from './types';
-import { createJsonBodyOptions } from '@/src/utils/request-options';
+import { createJsonBodyOptions } from '@/src/utils/request';
 import { getPayload } from '@/src/utils/jwt';
 
 function getTokens(tokens: ResponseAuth): Tokens {
