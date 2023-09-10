@@ -23,3 +23,12 @@ export function createJsonBodyOptionsAuth(
   const _body = JSON.stringify(body);
   return { headers, body: _body };
 }
+
+export function createFormDataOptionAuth(token: string, body?: FormData) {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  if (!body) return { headers };
+
+  return { headers, body };
+}
