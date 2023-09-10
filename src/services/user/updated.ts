@@ -3,7 +3,7 @@ import {
   Response,
   createFormDataOptionAuth,
 } from '@/src/utils/request';
-import { UserData } from './types';
+import { UserFormData } from './types';
 import ENDPOINTS from '@/src/utils/endpoints';
 
 interface Body {
@@ -12,7 +12,7 @@ interface Body {
 
 async function updateUser(
   bearer_token: string,
-  data: Partial<UserData>,
+  data: Partial<UserFormData>,
 ): Promise<Response<Body>> {
   const formData = new FormData();
 

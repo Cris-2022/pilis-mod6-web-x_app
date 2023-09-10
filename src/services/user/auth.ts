@@ -1,5 +1,11 @@
 import ENDPOINTS from '@/src/utils/endpoints';
-import { PayloadAuth, ResponseAuth, Tokens, UserCredentials } from './types';
+import {
+  User,
+  ResponseAuth,
+  Tokens,
+  UserCredentials,
+  PayloadAuth,
+} from './types';
 import { Response, createJsonBodyOptions } from '@/src/utils/request';
 import { getPayload } from '@/src/utils/jwt';
 
@@ -11,7 +17,7 @@ function getTokens(tokens: ResponseAuth): Tokens {
 }
 
 interface Result {
-  user: PayloadAuth;
+  user: User;
   tokens: Tokens;
 }
 async function auth(credentials: UserCredentials): Promise<Response<Result>> {
@@ -25,7 +31,9 @@ async function auth(credentials: UserCredentials): Promise<Response<Result>> {
 
   const auth: ResponseAuth = await response.json();
 
-  const user: PayloadAuth = getPayload(auth.token);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { iat, ...user } = <PayloadAuth>getPayload(auth.token);
+
   const tokens = getTokens(auth);
   const body = { user, tokens };
 

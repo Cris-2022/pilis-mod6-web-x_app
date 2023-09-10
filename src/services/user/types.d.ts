@@ -3,7 +3,7 @@ export interface Tokens {
   refresh_token: string;
 }
 
-export interface UserData {
+export interface UserFormData {
   username: string;
   password: string;
   avatar: File;
@@ -23,8 +23,12 @@ export interface ResponseRefresh {
   token: string;
 }
 
-export interface PayloadAuth {
+export interface User {
   id: string;
   username: string;
   avatar: string | null;
+}
+
+export interface PayloadAuth extends User {
+  iat: number;
 }
