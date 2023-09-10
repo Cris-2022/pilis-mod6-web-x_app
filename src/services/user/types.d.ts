@@ -6,7 +6,7 @@ export interface Tokens {
 export interface UserData {
   username: string;
   password: string;
-  avatar: string;
+  avatar: File;
 }
 
 export interface UserCredentials {
