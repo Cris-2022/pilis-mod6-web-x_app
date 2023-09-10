@@ -1,6 +1,6 @@
 import ENDPOINTS from '@/src/utils/endpoints';
 import { PayloadAuth, ResponseAuth, Tokens, UserCredentials } from './types';
-import { createJsonBodyOptions } from '@/src/utils/request';
+import { Response, createJsonBodyOptions } from '@/src/utils/request';
 import { getPayload } from '@/src/utils/jwt';
 
 function getTokens(tokens: ResponseAuth): Tokens {
@@ -14,18 +14,22 @@ interface Result {
   user: PayloadAuth;
   tokens: Tokens;
 }
-async function auth(credentials: UserCredentials): Promise<Result> {
+async function auth(credentials: UserCredentials): Promise<Response<Result>> {
   const request = createJsonBodyOptions(credentials);
-
   const response = await fetch(ENDPOINTS.AUTH, request);
-  if (!response.ok) throw new Error('usuario y contraseñas incorrectas');
+
+  const status = response.status;
+  const isError = response.ok;
+
+  if (isError) return { isError, status };
 
   const auth: ResponseAuth = await response.json();
 
   const user: PayloadAuth = getPayload(auth.token);
   const tokens = getTokens(auth);
+  const body = { user, tokens };
 
-  return { user, tokens };
+  return { isError, status, body };
 }
 
 export default auth;
