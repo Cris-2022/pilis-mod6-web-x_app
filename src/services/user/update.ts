@@ -10,7 +10,7 @@ interface Body {
   message: string;
 }
 
-async function updateUser(
+async function update(
   bearer_token: string,
   data: Partial<UserFormData>,
 ): Promise<Response<Body>> {
@@ -33,4 +33,4 @@ async function updateUser(
   return { isError: true, status, body };
 }
 
-export default updateUser;
+export default update;
