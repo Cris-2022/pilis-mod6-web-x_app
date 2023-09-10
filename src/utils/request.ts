@@ -5,6 +5,12 @@ export const METHODS = {
   DELETE: 'DELETE',
 };
 
+export interface Response<T = void> {
+  isError: boolean;
+  status: number;
+  body?: T;
+}
+
 export function createJsonBodyOptions(body?: object): RequestInit {
   const headers = { 'Content-Type': 'application/json' };
   const _body = JSON.stringify(body);
