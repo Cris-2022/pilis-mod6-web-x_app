@@ -4,7 +4,7 @@ import {
   createJsonBodyOptionsAuth,
 } from '@/src/utils/request';
 
-import { User } from './types';
+import { PayloadAuth, User } from './types';
 import ENDPOINTS from '@/src/utils/endpoints';
 import { getPayload } from '@/src/utils/jwt';
 
@@ -25,7 +25,9 @@ async function refresh(refresh_token: string): Promise<Response<Result>> {
   if (isError) return { isError, status };
 
   const { token: bearer_token } = await response.json();
-  const user: User = getPayload(bearer_token);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { iat, ...user } = <PayloadAuth>getPayload(bearer_token);
   const body = { user, bearer_token };
 
   return { isError, status, body };
