@@ -8,7 +8,7 @@ export const METHODS = {
 export interface Response<T = void> {
   isError: boolean;
   status: number;
-  body?: T;
+  result?: T;
 }
 
 export function createJsonBodyOptions(body?: object): RequestInit {

@@ -35,9 +35,9 @@ async function auth(credentials: UserCredentials): Promise<Response<Result>> {
   const { iat, ...user } = <PayloadAuth>getPayload(auth.token);
 
   const tokens = getTokens(auth);
-  const body = { user, tokens };
+  const result = { user, tokens };
 
-  return { isError, status, body };
+  return { isError, status, result };
 }
 
 export default auth;

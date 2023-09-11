@@ -6,14 +6,10 @@ import {
 import { UserFormData } from './types';
 import ENDPOINTS from '@/src/utils/endpoints';
 
-interface Body {
-  message: string;
-}
-
 async function update(
   bearer_token: string,
   data: Partial<UserFormData>,
-): Promise<Response<Body>> {
+): Promise<Response> {
   const formData = new FormData();
 
   if (data.avatar) formData.append('avatar', data.avatar);
@@ -21,16 +17,14 @@ async function update(
   if (data.password) formData.append('password', data.password);
 
   const options = createFormDataOptionAuth(bearer_token, formData);
-  const response = await fetch(ENDPOINTS.USER, {
-    ...options,
-    method: METHODS.PUT,
-  });
+  const method = METHODS.PUT;
+
+  const response = await fetch(ENDPOINTS.USER, { ...options, method });
 
   const status = response.status;
-  if (response.ok) return { isError: false, status };
+  const isError = response.ok;
 
-  const body = await response.json();
-  return { isError: true, status, body };
+  return { status, isError };
 }
 
 export default update;
