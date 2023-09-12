@@ -1,12 +1,8 @@
-import {
-  METHODS,
-  Response,
-  createJsonBodyOptionsAuth,
-} from '@/src/utils/request';
+import { METHODS, Response, createJsonBodyOptionsAuth } from '@/utils/request';
 
 import { PayloadAuth, User } from './types';
-import ENDPOINTS from '@/src/utils/endpoints';
-import { getPayload } from '@/src/utils/jwt';
+import ENDPOINTS from '@/utils/endpoints';
+import { getPayload } from '@/utils/jwt';
 
 interface Result {
   user: User;

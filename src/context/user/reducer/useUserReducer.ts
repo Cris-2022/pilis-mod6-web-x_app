@@ -9,7 +9,7 @@ import {
   UserFormData,
   refresh as refreshServices,
   update as updateService,
-} from '@/src/services/user';
+} from '@/services/user';
 
 function useUserReducer(): IContext {
   const [state, dispatch] = useReducer(reducer, defaultState);
