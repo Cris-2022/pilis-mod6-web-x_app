@@ -1,0 +1,25 @@
+{
+    "tags": [
+        {
+            "id": 1,
+            "nombre": "LOMITOS",
+            "img": "imagen"            
+        },
+        {
+            "id": 2,
+            "nombre": "HAMBURGUESAS",
+            "img": "imagen"           
+        },
+        {
+            "id": 3,
+            "nombre": "MILANESAS",
+            "img": "imagen"
+        },
+        {
+            "id": 4,
+            "nombre": "PANCHOS",
+            "img": "imagen"
+        }
+
+    ]
+}
