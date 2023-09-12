@@ -10,11 +10,13 @@ const Productos = () => {
 
   return (
 
-   <div className='col-2'>  
-      <button className='button-add'>
-        Agregar
-      </button>
-    
+   <div> 
+      <div className='head-prod'>
+        
+      <button className='button-new'>Agregar</button>
+      <h2>Gestión de productos</h2>
+
+      </div>
     <div className='grid'>
       {
         prods.map((product) => {

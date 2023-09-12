@@ -12,8 +12,8 @@ const Producto = ({ nombre, img, categoria, precio }) => {
       <h3 className="cookieDescription">categoria: {categoria}</h3>
       <h3 className="cookieHeading">precio: {precio} </h3>
       <div className="card-footer">
-         <button className='acceptButton'>Editar</button>
-         <button className='delButton'>Eliminar</button>
+         <button className='editButton'>Editar</button>
+         <button className='deleButton'>Eliminar</button>
       </div>      
       
      
