@@ -1,10 +1,6 @@
-import {
-  METHODS,
-  Response,
-  createFormDataOptionAuth,
-} from '@/src/utils/request';
+import { METHODS, Response, createFormDataOptionAuth } from '@/utils/request';
 import { UserFormData } from './types';
-import ENDPOINTS from '@/src/utils/endpoints';
+import ENDPOINTS from '@/utils/endpoints';
 
 async function update(
   bearer_token: string,
@@ -22,7 +18,7 @@ async function update(
   const response = await fetch(ENDPOINTS.USER, { ...options, method });
 
   const status = response.status;
-  const isError = response.ok;
+  const isError = !response.ok;
 
   return { status, isError };
 }

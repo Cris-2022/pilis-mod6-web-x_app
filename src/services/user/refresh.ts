@@ -1,12 +1,8 @@
-import {
-  METHODS,
-  Response,
-  createJsonBodyOptionsAuth,
-} from '@/src/utils/request';
+import { METHODS, Response, createJsonBodyOptionsAuth } from '@/utils/request';
 
 import { PayloadAuth, User } from './types';
-import ENDPOINTS from '@/src/utils/endpoints';
-import { getPayload } from '@/src/utils/jwt';
+import ENDPOINTS from '@/utils/endpoints';
+import { getPayload } from '@/utils/jwt';
 
 interface Result {
   user: User;
@@ -20,7 +16,7 @@ async function refresh(refresh_token: string): Promise<Response<Result>> {
   const response = await fetch(ENDPOINTS.AUTH, { ...options, method });
 
   const status = response.status;
-  const isError = response.ok;
+  const isError = !response.ok;
 
   if (isError) return { isError, status };
 

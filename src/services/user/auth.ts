@@ -1,4 +1,4 @@
-import ENDPOINTS from '@/src/utils/endpoints';
+import ENDPOINTS from '@/utils/endpoints';
 import {
   User,
   ResponseAuth,
@@ -6,8 +6,8 @@ import {
   UserCredentials,
   PayloadAuth,
 } from './types';
-import { Response, createJsonBodyOptions } from '@/src/utils/request';
-import { getPayload } from '@/src/utils/jwt';
+import { Response, createJsonBodyOptions } from '@/utils/request';
+import { getPayload } from '@/utils/jwt';
 
 function getTokens(tokens: ResponseAuth): Tokens {
   const bearer_token = tokens.token;
@@ -25,7 +25,7 @@ async function auth(credentials: UserCredentials): Promise<Response<Result>> {
   const response = await fetch(ENDPOINTS.AUTH, request);
 
   const status = response.status;
-  const isError = response.ok;
+  const isError = !response.ok;
 
   if (isError) return { isError, status };
 

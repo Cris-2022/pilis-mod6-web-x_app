@@ -1,4 +1,4 @@
-import { Tokens, User } from '@/src/services/user/types';
+import { Tokens, User } from '@/services/user/types';
 
 export enum ACTIONS {
   LOADING,

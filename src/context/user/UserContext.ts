@@ -3,7 +3,7 @@ import {
   User,
   UserCredentials,
   UserFormData,
-} from '@/src/services/user/types';
+} from '@/services/user/types';
 import { createContext } from 'react';
 
 export interface IContext {
