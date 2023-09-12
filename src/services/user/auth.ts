@@ -25,7 +25,7 @@ async function auth(credentials: UserCredentials): Promise<Response<Result>> {
   const response = await fetch(ENDPOINTS.AUTH, request);
 
   const status = response.status;
-  const isError = response.ok;
+  const isError = !response.ok;
 
   if (isError) return { isError, status };
 

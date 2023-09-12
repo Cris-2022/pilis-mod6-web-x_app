@@ -16,7 +16,7 @@ async function refresh(refresh_token: string): Promise<Response<Result>> {
   const response = await fetch(ENDPOINTS.AUTH, { ...options, method });
 
   const status = response.status;
-  const isError = response.ok;
+  const isError = !response.ok;
 
   if (isError) return { isError, status };
 

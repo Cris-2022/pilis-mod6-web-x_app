@@ -18,7 +18,7 @@ async function update(
   const response = await fetch(ENDPOINTS.USER, { ...options, method });
 
   const status = response.status;
-  const isError = response.ok;
+  const isError = !response.ok;
 
   return { status, isError };
 }
