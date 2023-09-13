@@ -1,5 +1,9 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --base-color: #4c4a95;
+  --contrast-color: #646cff;
+  --accent-color: #f79929;
+  --accent-color-contrast: #d8b384;
 }
 
 body {
