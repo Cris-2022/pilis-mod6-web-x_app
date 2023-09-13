@@ -9,7 +9,7 @@ function App() {
       <Route path='/' Component={Layouts}>
         <Route index Component={Home} />
         <Route path='products' Component={Products} />
-        <Route path='Login' Component={Login} />
+        <Route path='login' Component={Login} />
       </Route>
     </Routes>
   );
