@@ -2,12 +2,18 @@
 
 .Navigation {
   padding: 20px;
-  min-height: 55px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: space-between;
   background: #4c4a95;
+}
+
+/* Logo */
+.logo {
+  width: 110px;
+  height: auto;
 }
 
 /* xApp */

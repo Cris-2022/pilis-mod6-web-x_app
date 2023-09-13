@@ -1,7 +1,7 @@
 import './style.css';
 
 interface Props {
-  banners: string[];
+  banners?: string[];
   defBanner?: string;
 }
 
