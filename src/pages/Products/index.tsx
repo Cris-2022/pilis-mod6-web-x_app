@@ -1,5 +1,17 @@
-export default function Products() {
-  const isLogin = false;
+import "./Producto.css"
+import Productos from "../Products/components/Productos"
+import Tags from '../Products/components/Tags'
 
-  return isLogin ? <h1>Products</h1> : <h1>Necesitas iniciar sesión</h1>;
+export default function Products() {
+  /* const isLogin = false;
+ */
+  return (
+    <div className='main-container'>   
+        <Tags/>  
+        <Productos />        
+    </div>
+      
+  )
+     
+  
 }
