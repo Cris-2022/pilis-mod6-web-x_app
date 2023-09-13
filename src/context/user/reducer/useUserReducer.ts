@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { IContext } from '../UserContext';
 import { ACTIONS } from './action';
 import reducer from './reducer';
@@ -10,9 +10,28 @@ import {
   refresh as refreshServices,
   update as updateService,
 } from '@/services/user';
+import Storage from '@/utils/storage';
+
+const TOKEN_STORAGE = 'tils';
 
 function useUserReducer(): IContext {
   const [state, dispatch] = useReducer(reducer, defaultState);
+
+  useEffect(() => {
+    const storage = new Storage<string>(TOKEN_STORAGE);
+    const token = storage.value;
+
+    if (!token) return;
+
+    dispatch({ type: ACTIONS.LOADING });
+    refreshServices(token).then(({ isError, status, result }) => {
+      if (isError) return dispatch({ type: ACTIONS.ERROR, status });
+
+      const { bearer_token, user } = result!;
+      const tokens = { bearer_token, refresh_token: token };
+      dispatch({ type: ACTIONS.LOGIN, tokens, user });
+    });
+  }, []);
 
   const logIn = async (credentials: UserCredentials) => {
     dispatch({ type: ACTIONS.LOADING });
@@ -21,11 +40,16 @@ function useUserReducer(): IContext {
 
     if (isError) return dispatch({ type: ACTIONS.ERROR, status });
 
+    const storage = new Storage<string>(TOKEN_STORAGE);
     const { user, tokens } = result!;
+
+    storage.value = tokens.refresh_token;
     return dispatch({ type: ACTIONS.LOGIN, user, tokens });
   };
 
   const logOut = () => {
+    const storage = new Storage<string>(TOKEN_STORAGE);
+    storage.clean();
     dispatch({ type: ACTIONS.LOGOUT });
   };
 
