@@ -19,6 +19,7 @@ function reducer(state: State, action: Action): State {
     case ACTIONS.LOGIN:
       return {
         ...state,
+        isLogin: true,
         isLoading: false,
         isError: false,
         status: null,

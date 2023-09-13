@@ -6,7 +6,7 @@ import {
   UserCredentials,
   PayloadAuth,
 } from './types';
-import { Response, createJsonBodyOptions } from '@/utils/request';
+import { METHODS, Response, createJsonBodyOptions } from '@/utils/request';
 import { getPayload } from '@/utils/jwt';
 
 function getTokens(tokens: ResponseAuth): Tokens {
@@ -21,8 +21,11 @@ interface Result {
   tokens: Tokens;
 }
 async function auth(credentials: UserCredentials): Promise<Response<Result>> {
-  const request = createJsonBodyOptions(credentials);
-  const response = await fetch(ENDPOINTS.AUTH, request);
+  const options = createJsonBodyOptions(credentials);
+  const response = await fetch(ENDPOINTS.AUTH, {
+    ...options,
+    method: METHODS.POST,
+  });
 
   const status = response.status;
   const isError = !response.ok;
