@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Producto from "./Producto"; 
 import './Productos.css' 
 import json from "../../../assets/products.json";
@@ -11,9 +11,16 @@ const Productos = () => {
   return (
 
    <div> 
-      <div className='head-prod'>         
-         <button className='button-new'>Agregar</button>
-         <h2>Gestión de productos</h2>
+      <h1>Gestión de productos</h1>
+      <div className='head-prod'>        
+          <input type="text" placeholder='ingrese nombre' name="" id="" />
+          <select>
+              <option value=''>-- Categoria --</option>               
+          </select>
+          <input className="precio" type="text" placeholder='ingresar precio' name="" id="" />          
+          <input type="file" name="" id="" /> 
+                    
+          <button className='button-new'>Agregar</button>
       </div>
     <div className='grid'>
       {
