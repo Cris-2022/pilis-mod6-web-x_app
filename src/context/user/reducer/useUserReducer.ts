@@ -73,6 +73,7 @@ function useUserReducer(): IContext {
     const { isError, status } = await updateService(bearer_token, data);
 
     if (isError) return dispatch({ type: ACTIONS.ERROR, status });
+    refresh();
   };
 
   return {
