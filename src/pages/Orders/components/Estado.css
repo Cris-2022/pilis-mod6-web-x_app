@@ -1,0 +1,21 @@
+.tag {
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #4d4a95;
+    width: 100%;
+  }
+  
+  
+  .tag:hover {
+    cursor: pointer;
+    border: 1px solid #e9e9e9;
+    background-color: #4d4a95;
+    color: rgb(241, 241, 241);
+  }
+  
+  .active {
+    background-color: #714aff;
+    color: #fff;
+  }

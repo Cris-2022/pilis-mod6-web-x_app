@@ -11,11 +11,9 @@ const Productos = () => {
   return (
 
    <div> 
-      <div className='head-prod'>
-        
-      <button className='button-new'>Agregar</button>
-      <h2>Gestión de productos</h2>
-
+      <div className='head-prod'>         
+         <button className='button-new'>Agregar</button>
+         <h2>Gestión de productos</h2>
       </div>
     <div className='grid'>
       {
@@ -24,7 +22,7 @@ const Productos = () => {
              <Producto
                key={product.id}
                nombre={product.nombre}
-               imagen={product.img}
+               img={product.img}
                categoria={product.categoria}
                precio={product.precio}          
              />           
