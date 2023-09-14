@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home, Products, Orders } from './pages';
+import { Home, Preferences, Products, Orders } from './pages';
 import Layouts from './layouts';
 import { Login } from './pages/Login';
 
@@ -11,6 +11,7 @@ function App() {
         <Route path='products' Component={Products} />
         <Route path='login' Component={Login} />
         <Route path='orders' Component={Orders} />
+        <Route path='preferences' Component={Preferences} />
       </Route>
     </Routes>
   );

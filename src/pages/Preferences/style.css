@@ -1,0 +1,55 @@
+.preferences {
+  --border-width: 5px;
+  max-width: 500px;
+  border: solid var(--border-width) var(--base-color);
+  border-radius: 40px;
+  margin: 10%;
+  padding: 10%;
+  font-size: 1.3em;
+}
+
+.preferences__avatar {
+  width: 30vw;
+  border: solid var(--border-width) var(--accent-color);
+  border-radius: 50%;
+}
+
+.preferences__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em;
+}
+
+.preferences__form-section {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  margin-bottom: 1em;
+}
+.preferences__form-section--avatar {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.preferences__form-input--file {
+  display: none;
+}
+.preferences__form-note {
+  font-size: 15px;
+  color: gray;
+}
+
+.preferences__form-button {
+  cursor: pointer;
+  background-color: var(--background-color);
+  width: fit-content;
+  padding: 10px;
+
+  &:hover {
+    background-color: var(--accent-color);
+  }
+}
