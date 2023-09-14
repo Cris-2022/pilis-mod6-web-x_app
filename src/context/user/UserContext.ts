@@ -16,6 +16,7 @@ export interface IContext {
   refresh: () => void;
   update: (data: UserFormData) => void;
   logOut: () => void;
+  resolve: () => void;
   isError: boolean;
   status: number | null;
 }
@@ -30,6 +31,7 @@ const Context: IContext = {
   refresh() {},
   update() {},
   logOut() {},
+  resolve() {},
   isError: false,
   status: null,
 };

@@ -76,12 +76,17 @@ function useUserReducer(): IContext {
     refresh();
   };
 
+  const resolve = () => {
+    dispatch({ type: ACTIONS.RESOLVE });
+  };
+
   return {
     ...state,
     logIn,
     logOut,
     refresh,
     update,
+    resolve,
   };
 }
 

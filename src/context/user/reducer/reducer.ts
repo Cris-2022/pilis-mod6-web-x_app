@@ -40,6 +40,13 @@ function reducer(state: State, action: Action): State {
         status: null,
       };
 
+    case ACTIONS.RESOLVE:
+      return {
+        ...state,
+        isError: false,
+        status: null,
+      };
+
     default:
       return state;
   }
