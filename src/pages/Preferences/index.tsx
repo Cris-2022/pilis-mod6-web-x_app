@@ -1,67 +1,39 @@
 import './style.css';
 
-import { Image } from '@/components';
 import { useUserContext } from '@/context/user';
 import { Navigate } from 'react-router-dom';
-import defaultAvatar from '@/assets/login.png';
+import Message from './Message';
+import UserForm, { SubmitHandler } from './UserForm';
+import { UserFormData } from '@/services/user';
+import { useEffect } from 'react';
 
 export default function Preferences() {
-  const { isLogin, user, logOut } = useUserContext();
+  const { isLogin, logOut, isLoading, isError, status, user, update, resolve } =
+    useUserContext();
+
+  useEffect(() => {
+    if (isError) resolve();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const onSubmit: SubmitHandler = data => {
+    const userFormData: UserFormData = {
+      ...data,
+      avatar: data.avatar[0],
+    };
+    update(userFormData);
+  };
 
   if (!isLogin) return <Navigate to='/' replace />;
-  const { id, username, avatar } = user!;
 
   return (
     <main className='preferences'>
-      <form className='preferences__form'>
-        <div className='preferences__form-section-avatar'>
-          <label htmlFor='avatar'>
-            <Image
-              className='preferences__avatar'
-              src={avatar}
-              altSrc={defaultAvatar}
-              alt='user-avatar'
-            />
-          </label>
-          <span>ID: {id}</span>
-          <input
-            className='preferences__form-input--file'
-            type='file'
-            name='avatar'
-            id='avatar'
-          />
-        </div>
-
-        <div className='preferences__form-section'>
-          <label htmlFor='username'>Nombre de Usuario:</label>
-          <input
-            className='preferences__input'
-            type='text'
-            name='username'
-            id='username'
-            placeholder={username}
-          />
-        </div>
-
-        <div className='preferences__form-section'>
-          <label htmlFor='password'>Contraseña:</label>
-          <input
-            className='preferences__input'
-            type='password'
-            name='password'
-            id='password'
-            placeholder={'************'}
-          />
-        </div>
-
-        <p className='preferences__form-note'>
-          Recuerde cambiar de contraseña periódicamente. Aproximadamente una vez
-          cada 3 meses.
-        </p>
-
-        <button className='preferences__form-button'>Guardar Cambios</button>
-      </form>
-      <button onClick={logOut}>cerrar sesión</button>
+      {isLoading && <h1>cargando...</h1>}
+      {user && <UserForm user={user} onSubmit={onSubmit} />}
+      <Message isError={isError} status={status} />
+      <button className='preferences__logout-button' onClick={logOut}>
+        cerrar sesión
+      </button>
     </main>
   );
 }

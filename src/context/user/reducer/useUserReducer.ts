@@ -73,6 +73,11 @@ function useUserReducer(): IContext {
     const { isError, status } = await updateService(bearer_token, data);
 
     if (isError) return dispatch({ type: ACTIONS.ERROR, status });
+    refresh();
+  };
+
+  const resolve = () => {
+    dispatch({ type: ACTIONS.RESOLVE });
   };
 
   return {
@@ -81,6 +86,7 @@ function useUserReducer(): IContext {
     logOut,
     refresh,
     update,
+    resolve,
   };
 }
 

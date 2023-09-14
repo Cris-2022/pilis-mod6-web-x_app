@@ -11,49 +11,33 @@
   font-size: 1.3em;
 }
 
-.preferences__avatar {
-  max-width: 300px;
-  border: solid var(--border-width) var(--accent-color);
-  border-radius: 50%;
-}
-
-.preferences__form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2em;
-}
-
-.preferences__form-section {
-  width: 100%;
-  justify-content: space-between;
-  display: flex;
-  margin-bottom: 1em;
-}
-.preferences__form-section-avatar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 2em;
-}
-
-.preferences__form-input--file {
-  display: none;
-}
-.preferences__form-note {
-  font-size: 15px;
+.preferences__message {
   color: gray;
 }
 
-.preferences__form-button {
+.preferences__message--error {
   cursor: pointer;
+  border: solid 3px #ff0000;
   border-radius: 40px;
-  background-color: var(--background-color);
-  width: fit-content;
-  padding: 10px;
+  padding: 1em;
+  color: var(--base-color);
+  background-color: var(--accent-color-contrast);
+}
+
+.preferences__logout-button {
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 
   &:hover {
-    background-color: var(--accent-color);
+    background-color: #cc0000; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+  }
+
+  &:active {
+    background-color: #aa0000; /* Cambia el color de fondo cuando se hace clic en el botón */
   }
 }

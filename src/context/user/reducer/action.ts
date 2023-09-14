@@ -6,6 +6,7 @@ export enum ACTIONS {
   LOGIN,
   LOGOUT,
   REFRESH,
+  RESOLVE,
 }
 
 export interface LoadingAction {
@@ -33,9 +34,14 @@ export interface RefreshAction {
   token: string;
 }
 
+export interface ResolveAction {
+  type: ACTIONS.RESOLVE;
+}
+
 export type Action =
   | LoadingAction
   | ErrorAction
   | LoginAction
   | LogOutAction
-  | RefreshAction;
+  | RefreshAction
+  | ResolveAction;
