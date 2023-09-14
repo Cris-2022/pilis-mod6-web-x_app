@@ -13,11 +13,9 @@ export default function Preferences() {
 
   return (
     <main className='preferences'>
-      <h2>Código de usuario: {id}</h2>
-
       <form className='preferences__form'>
-        <div className='preferences__form-section--avatar'>
-          <label className='preferences__label' htmlFor='avatar'>
+        <div className='preferences__form-section-avatar'>
+          <label htmlFor='avatar'>
             <Image
               className='preferences__avatar'
               src={avatar}
@@ -25,6 +23,7 @@ export default function Preferences() {
               alt='user-avatar'
             />
           </label>
+          <span>ID: {id}</span>
           <input
             className='preferences__form-input--file'
             type='file'
@@ -34,9 +33,7 @@ export default function Preferences() {
         </div>
 
         <div className='preferences__form-section'>
-          <label className='preferences__label' htmlFor='username'>
-            Nombre de Usuario:
-          </label>
+          <label htmlFor='username'>Nombre de Usuario:</label>
           <input
             className='preferences__input'
             type='text'
@@ -47,9 +44,7 @@ export default function Preferences() {
         </div>
 
         <div className='preferences__form-section'>
-          <label className='preferences__label' htmlFor='password'>
-            Contraseña:
-          </label>
+          <label htmlFor='password'>Contraseña:</label>
           <input
             className='preferences__input'
             type='password'
