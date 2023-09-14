@@ -1,31 +1,10 @@
-import { Product } from "@/src/services/product/types";
+import { Product } from "@/services/products";
 
-export enum ACTIONS {
-  LOADING,
-  ERROR,
-  STARTED,
-  SUCCESS,
-}
+export type ProductAction =
+    { type: "GET - product", payload: Product[] }
 
-export interface LoadingAction {
-  type: ACTIONS.LOADING;
-}
 
-export interface ErrorAction {
-  type: ACTIONS.ERROR;
-}
-
-export interface StardedAction {
-  type: ACTIONS.STARTED
-}
-
-export interface SuccessAction {
-  type: ACTIONS.SUCCESS;
-  product: Product
-}
-
-export type Action =
-  | LoadingAction
-  | ErrorAction
-  | SuccessAction
-  | StardedAction
+//  |   LOADING: "loading- product",
+//   |  GETPRODUCTS: "GET-products",
+//    | DELETE: "DEL-products",
+//     |UPDATE: "UP-products"

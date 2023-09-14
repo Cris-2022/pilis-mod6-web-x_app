@@ -1,15 +1,15 @@
-import { Product } from "@/src/services/product/types";
+import { Product } from "../../../services/products/types";
 
-export interface State {
+export interface ProductState {
     isLoading: boolean;
     isError: boolean;
-    product: Product | null;
+    product: Product [] | [];
     image: string | null
 }
 
-export const defaultState: State = {
+export const initialState: ProductState = {
     isLoading: false,
     isError: false,
-    product: null,
+    product: [],
     image: null
 };

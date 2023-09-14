@@ -1,12 +1,21 @@
-import { ReactNode } from 'react';
-import { useProductReducer } from './reducer/useProductReducer';
-import ProductContex from './ProductContex';
+import { ReactNode, useReducer } from 'react';
+import { ProductContex } from './ProductContex';
+import { initialState } from './reducer/state';
+import productReducer from './reducer/reducer';
+
 
 interface Props {
   children: ReactNode;
 }
 
-export default function ProductProvider({ children }: Props) {
-  const value = useProductReducer();
-  return <ProductContex.Provider value={value}>{children}</ProductContex.Provider>;
+const ProductProvider = ({ children }: Props) => {
+  const [state, dispatch] = useReducer(productReducer, initialState)
+
+  return (
+    <ProductContex.Provider value={{ state, dispatch }}>
+      {children}
+    </ProductContex.Provider>
+  )
 }
+
+export default ProductProvider

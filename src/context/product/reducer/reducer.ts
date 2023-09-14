@@ -1,42 +1,16 @@
-import { ACTIONS, Action } from './actions';
-import { State, defaultState } from './state';
+import { ProductAction } from "./actions"
+import { ProductState } from "./state"
 
-const reducer = (state: State, action: Action): State => {
-  const typeAction = action.type;
 
-  switch (typeAction) {
-    case ACTIONS.LOADING:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false
-      };
-
-    case ACTIONS.ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
-      };
-
-    case ACTIONS.STARTED:
-      return {
-        ...state,
-        isLoading: true,
-        isError: false,
-      };
-
-    case ACTIONS.SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        isError: false,
-        product: action.product
-      }
+function productReducer(state: ProductState, action: ProductAction): ProductState {
+  switch (action.type) {
+    case "GET - product":
+      return { ...state, product: action.payload };
 
     default:
-      return defaultState;
-  };
-};
+      return state;
+  }
 
-export default reducer;
+}
+
+export default productReducer
