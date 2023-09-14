@@ -1,0 +1,29 @@
+{
+    "pedidos": [
+        {
+            "id": "00026",
+            "Fecha_hora": "12-09-23 // 15,30",
+            "estado": "en PROCESO",
+            "total": "$ 6500.-"
+        },
+        {
+            "id": "00027",
+            "Fecha_hora": "12-09-23 // 15,34",
+            "estado": "en PROCESO",
+            "total": "$ 8300.-"
+        },
+        {
+            "id": "00028",
+            "Fecha_hora": "12-09-23 // 15,36",
+            "estado": "INICIADO",
+            "total": "$ 7500.-"
+        },
+        {
+            "id": "00029",
+            "Fecha_hora": "12-09-23 // 15,38",
+            "estado": "INICIADO",
+            "total": "$ 8600.-"
+        }
+
+    ]
+}

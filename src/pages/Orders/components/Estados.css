@@ -1,0 +1,10 @@
+.tag-container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    border: 1px solid grey;
+    border-radius: 0%;
+    margin-right: 20px;
+    padding: 20px
+    
+  }
