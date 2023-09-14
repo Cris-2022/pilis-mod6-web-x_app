@@ -6,10 +6,10 @@ import Header from './Header';
 
 export default function DefaultLayouts() {
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }

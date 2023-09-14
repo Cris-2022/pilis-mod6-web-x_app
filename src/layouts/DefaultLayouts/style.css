@@ -1,27 +1,29 @@
 /* HEADER CSS */
 
 .Navigation {
-  padding: 20px;
-  height: 75px;
+  --font-size: 1.3em;
+  --height-header: 75px;
+
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: space-between;
-  background: #4c4a95;
+  align-items: center;
+  justify-content: space-around;
+
+  height: var(--height-header);
+  width: 100%;
+  padding-top: 2em;
+
+  background: var(--base-color);
 }
 
 /* Logo */
 .logo {
-  width: 110px;
-  height: auto;
+  height: calc(var(--height-header) + 10px);
 }
 
 /* xApp */
 .Title {
-  margin: 0%;
   font-size: 3.2em;
-  line-height: 1.1;
-  color: #ffffff;
+  color: white;
 }
 
 /* Navbar */
@@ -29,12 +31,21 @@
 /* Inicio de Seción */
 .login {
   text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-weight: bold;
+  font-size: large;
+  color: var(--contrast-color);
+
+  &:hover {
+    color: white;
+  }
 }
 
 .text-login {
-  color: #646cff;
+  font-size: var(--font-size);
   margin: 0%;
-}
-.text-login:hover {
-  color: #ffffff;
 }
