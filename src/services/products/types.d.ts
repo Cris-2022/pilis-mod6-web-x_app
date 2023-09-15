@@ -3,7 +3,7 @@ export interface ProductFormData {
   price: number;
   stock: number;
   category: string;
-  product: File;
+  image: Blob
 }
 
 export interface Product {
