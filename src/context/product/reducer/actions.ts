@@ -1,7 +1,28 @@
 import { Product } from "@/services/products";
 
-export type ProductAction =
-    { type: "GET - product", payload: Product[] }
+
+// const GETPRODUCTS = "GET - product"
+
+export enum ACTIONS {
+  LOADING,
+  ERROR,
+  GETPRODUCTS
+}
+
+type LoadingAction =
+  { type: ACTIONS.LOADING }
+
+type ErrorAction =
+  { type: ACTIONS.ERROR }
+
+type GetProductAction =
+  { type: ACTIONS.GETPRODUCTS, product: Product[] }
+
+export type Actions =
+  | LoadingAction
+  | ErrorAction
+  | GetProductAction
+
 
 
 //  |   LOADING: "loading- product",

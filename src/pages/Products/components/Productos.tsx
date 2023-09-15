@@ -4,22 +4,29 @@ import './Productos.css'
 // import json from "../../../assets/products.json";
 import { ProductContex } from '../../../context/product/ProductContex';
 import { getProducts } from '@/services/products';
+import { ACTIONS } from '@/context/product/reducer/actions';
 
 
 const Productos = () => {
-  // const [product, setProds] = useState(json.productos);
 
   const { state, dispatch } = useContext(ProductContex)
   const { product } = state
-  const fetchProduct = async () => {
-    const { result } = await getProducts()
-    if (result)
-      dispatch({ type: "GET - product", payload: result })
-  }
-  useEffect(() => {
-    fetchProduct()
-  }, [dispatch])
 
+  const fetchProduct = async () => {
+    dispatch({ type: ACTIONS.LOADING })
+
+    const { result, isError } = await getProducts()
+    if (isError && !result) dispatch({ type: ACTIONS.ERROR })
+
+    dispatch({
+      type: ACTIONS.GETPRODUCTS,
+      product: result
+    });
+  };
+
+  useEffect(() => {
+    fetchProduct();
+  }, [dispatch]);
 
   return (
 
