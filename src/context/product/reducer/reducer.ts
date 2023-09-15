@@ -24,6 +24,14 @@ function productReducer(state: ProductState, action: Actions): ProductState {
         product: action.product
       };
 
+    case ACTIONS.ADDPRODUCT:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        product: [...state.product, action.product]
+      };
+
     default:
       return state;
   };

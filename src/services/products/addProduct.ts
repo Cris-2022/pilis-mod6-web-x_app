@@ -8,13 +8,14 @@ async function addProduct(
   data: Partial<ProductFormData>,
 ): Promise<Result> {
   const formData = new FormData();
+  // const {image} = data
 
-  if (data.category) formData.append('category', data.category);
   if (data.name) formData.append('name', data.name);
   if (data.price) formData.append('price', data.price.toString());
-  if (data.product) formData.append('product', data.product);
   if (data.stock) formData.append('stock', data.stock.toString());
-
+  if (data.category) formData.append('category', data.category);
+  if (data.image) formData.append('product', (data.image));
+  
   const options = createFormDataOptionAuth(token, formData);
   const method = METHODS.POST;
 
