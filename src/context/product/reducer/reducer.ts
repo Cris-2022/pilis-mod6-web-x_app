@@ -1,16 +1,32 @@
-import { ProductAction } from "./actions"
+import { ACTIONS, Actions } from "./actions"
 import { ProductState } from "./state"
 
 
-function productReducer(state: ProductState, action: ProductAction): ProductState {
+function productReducer(state: ProductState, action: Actions): ProductState {
   switch (action.type) {
-    case "GET - product":
-      return { ...state, product: action.payload };
+    case ACTIONS.LOADING:
+      return {
+        ...state,
+        isLoading: true
+      };
+
+    case ACTIONS.ERROR:
+      return {
+        ...state,
+        isError: true
+      };
+
+    case ACTIONS.GETPRODUCTS:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        product: action.product
+      };
 
     default:
       return state;
-  }
+  };
+};
 
-}
-
-export default productReducer
+export default productReducer;
