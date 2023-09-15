@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import Producto from "./Producto";
+import Form from "./Form";
 import './Productos.css'
 // import json from "../../../assets/products.json";
 import { ProductContex } from '../../../context/product/ProductContex';
@@ -31,10 +32,8 @@ const Productos = () => {
   return (
 
     <div>
-      <div className='head-prod'>
-        <button className='button-new'>Agregar</button>
-        <h2>Gestión de productos</h2>
-      </div>
+      <h1>Gestión de productos</h1>
+      <Form/>
       <div className='grid'>
         {
           product.map((product) => {
@@ -50,7 +49,7 @@ const Productos = () => {
           })
         }
 
-      </div>
+      F</div>
     </div>
 
   )
