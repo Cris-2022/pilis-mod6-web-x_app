@@ -1,22 +1,22 @@
 import './style.css';
+import img1 from '../../../assets/Tarjetas/img-1.png';
+import img2 from '@/assets/Tarjetas/img-2.png';
+import img3 from '@/assets/Tarjetas/img-3.png';
 
 export const Tarjeta = ({
   name = 'string',
-  /* imag */ producto = 'string',
+  imag = 'string',
+  producto = 'string',
   precio = 'string',
-  otros = 'string',
-  otros2 = 'string',
 }) => {
   return (
     <div className='card-container' id='tarjeta'>
       <div className='card'>
         <h3>{name}</h3>
-        {/* <img className="imgs" src={imag} alt="aqui va una imagen" /> */}
+        <img className='imgs' src={imag} alt='imagen' />
         <ul>
           <li>productos: {producto}</li>
           <li>precio: {precio}</li>
-          <li>otro: {otros}</li>
-          <li>otro2: {otros2}</li>
         </ul>
       </div>
     </div>
@@ -26,39 +26,31 @@ export const Tarjeta = ({
 const CardList = [
   {
     id: 1,
-    name: 'Ejemplo',
-    // imag: 'https://cf.bstatic.com/images/hotel/840x460/317/317166470.jpg',
-    producto: 'XXXXX-XXX',
-    precio: 'XXXX',
-    otros: 'XXXXX',
-    otros2DelViento: 'XXXX',
+    name: 'Hamburgesa',
+    imag: img1,
+    producto: 'fast food',
+    precio: '1500',
   },
   {
     id: 2,
-    name: 'Ejemplo',
-    // imag: 'https://sanpedrodejujuy.gob.ar/wp-content/uploads/2020/07/IMG-20200724-WA0032.jpg',
-    producto: 'XXXXX-XXX',
-    precio: 'XXXXX',
-    otros: 'XXXXX',
-    otros2DelViento: 'XXXX',
+    name: 'Pizza',
+    imag: img2,
+    producto: 'fast food',
+    precio: '1200',
   },
   {
     id: 3,
-    name: 'Ejemplo',
-    // imag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkWQdtOZuSLAEFhE7yiwnktf9TYXSWSQByGQ&usqp=CAU',
-    producto: 'XXXXX-XXX',
-    precio: 'XXXXXX',
-    otros: 'XXXXXX',
-    otros2DelViento: 'XXXXX',
+    name: 'Super Pancho',
+    imag: img3,
+    producto: 'fast food',
+    precio: '1500',
   },
   {
     id: 4,
-    name: 'Ejemplo',
-    // imag: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWdNMk93cbwGQWxZg6fXDT_MWrgWDcvucSp6zBmw0eYoHb7QjzfqSPmjBGRBR204xqnUY&usqp=CAU',
-    producto: 'XXXXX-XXX',
-    precio: 'XXXXXX',
-    otros: 'XXXXXX',
-    otros2DelViento: 'XXXXX',
+    name: 'Hamburgesa XL',
+    imag: img1,
+    producto: 'fast food',
+    precio: '2500',
   },
 ];
 
@@ -66,10 +58,9 @@ export const Tarjetas = () => {
   return CardList.map(card => (
     <Tarjeta
       name={card.name}
-      /* imag={card.imag}  */ producto={card.producto}
+      imag={card.imag}
+      producto={card.producto}
       precio={card.precio}
-      otros={card.otros}
-      otros2={card.otros2DelViento}
       key={card.id}
     />
   ));
