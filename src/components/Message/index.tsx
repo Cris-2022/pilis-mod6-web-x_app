@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 type CaseProps = {
-  status: number;
+  status: number | string;
   children: ReactNode;
   className?: string;
 };
@@ -12,7 +12,7 @@ const Case: React.FC<CaseProps> = ({ status, children, className }) => {
 };
 
 type MessageProps = {
-  status: number;
+  status: number | string;
   children: React.ReactNode;
 };
 
