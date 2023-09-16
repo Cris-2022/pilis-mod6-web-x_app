@@ -30,7 +30,7 @@ const Productos = () => {
 
   useEffect(() => {
     fetchProduct();
-  }, [dispatch]);
+  }, []);
 
   const handleDelete = async (id: string) => {
     dispatch({ type: ACTIONS.LOADING });
@@ -58,6 +58,7 @@ const Productos = () => {
       <div className='grid'>
         {
           product.map((product: Product) => {
+            console.log("PRODUCT", product)
             return (
               <Producto
                 key={product.id}

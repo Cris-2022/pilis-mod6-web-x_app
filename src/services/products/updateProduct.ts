@@ -13,7 +13,7 @@ async function updateProduct(
   if (data.category) formData.append('category', data.category);
   if (data.name) formData.append('name', data.name);
   if (data.price) formData.append('price', data.price.toString());
-  if (data.product) formData.append('product', data.product);
+  if (data.image) formData.append('product', data.image);
   if (data.stock) formData.append('stock', data.stock.toString());
 
   const url = `${ENDPOINTS.PRODUCTS}/${id}`;

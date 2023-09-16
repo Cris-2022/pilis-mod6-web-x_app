@@ -40,6 +40,13 @@ function productReducer(state: ProductState, action: Actions): ProductState {
         product: state.product.filter(product => product.id !== action.payload)
       };
 
+    case ACTIONS.UPDATE_PRODUCT:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+      }
+
     default:
       return state;
   };
