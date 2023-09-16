@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { UserContext } from '@/context/user';
 import { ACTIONS } from '@/context/product/reducer/actions';
 import { ProductContex } from '@/context/product/ProductContex';
+import { categories } from '@/utils/productCategory';
 
 type FormValues = {
   name: string;
@@ -14,7 +15,6 @@ type FormValues = {
   stock: number;
 };
 
-const categoriesTest = ['Bebidas', 'Hamburgesas', 'Sandwiches', 'Helados'];
 
 const Form = () => {
   const { dispatch } = useContext(ProductContex);
@@ -22,8 +22,6 @@ const Form = () => {
   const { tokens } = useContext(UserContext);
 
   const onSubmit: SubmitHandler<FormValues> = async data => {
-    console.log('DATA', data);
-
     dispatch({ type: ACTIONS.LOADING });
     if (tokens) {
       const product: ProductFormData = {
@@ -55,7 +53,7 @@ const Form = () => {
           {...register('name', { required: 'The name es required' })}
         />
         <select {...register('category')}>
-          {categoriesTest.map((category, index) => (
+          {categories.map((category, index) => (
             <option key={index} value={category}>
               {category}
             </option>
