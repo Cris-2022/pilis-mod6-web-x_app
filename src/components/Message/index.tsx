@@ -8,6 +8,7 @@ type CaseProps = {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Case: React.FC<CaseProps> = ({ status, children, className }) => {
+  console.log(status);
   return <div className={className}>{children}</div>;
 };
 

@@ -1,9 +1,7 @@
-import './Estado.css'
+import './Estado.css';
 
-const Estado = ({ nombre }) => {
-  return (
-    <span className="tag">{nombre}</span>
-  )
-}
+const Estado = ({ nombre = '' }) => {
+  return <span className='tag'>{nombre}</span>;
+};
 
 export default Estado;
