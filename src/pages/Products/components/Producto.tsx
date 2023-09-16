@@ -19,10 +19,12 @@ const Producto = ({
 }: Props) => {
   return (
     <div className='cookieCard'>
-      <h3 className='cookieHeading'>{nombre}</h3>
-      <h3 className='cookieDescription'>imagen: {img}</h3>
-      <h3 className='cookieDescription'>categoria: {categoria}</h3>
-      <h3 className='cookieHeading'>precio: {precio} </h3>
+      <p className='cookieHeading'>{nombre}</p>
+      <div className='card-image-container'>
+        <img className='card-image' src={img} alt={`imagen - ${nombre}`} />
+      </div>
+      <p className='cookieDescription'>categoria: {categoria}</p>
+      <p className='cookieHeading'>precio: {precio} </p>
       <div className='card-footer'>
         <button className='editButton'>Editar</button>
         <button className='deleButton' onClick={() => deleteProduct(productId)}>

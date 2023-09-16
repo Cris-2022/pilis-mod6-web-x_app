@@ -4,18 +4,17 @@
   background: rgb(235, 191, 111);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  gap: 20px;
   padding: 20px;
   position: relative;
   overflow: hidden;
+  margin: 2em;
 }
 
 .cookieCard::before {
   width: 150px;
   height: 250px;
-  content: "";
+  content: '';
   background: #f6931e;
   position: absolute;
   z-index: 1;
@@ -42,9 +41,8 @@
 }
 
 .editButton {
-  padding: 11px 20px;
   background-color: #4d4a95;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   border: none;
   color: rgb(241, 241, 241);
   cursor: pointer;
@@ -53,11 +51,11 @@
 }
 
 .deleButton {
-  padding: 11px 20px;   
+  padding: 11px 20px;
   background-color: #f0f0f5;
   color: #f6931e;
-  transition-duration: .2s;
-  border: none;    
+  transition-duration: 0.2s;
+  border: none;
   cursor: pointer;
   font-weight: 600;
   z-index: 2;
@@ -65,18 +63,31 @@
 
 .editButton:hover {
   background-color: #706cd7;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
 
 .deleButton:hover {
-  background-color: #f6931e;    
+  background-color: #f6931e;
   color: rgb(241, 241, 241);
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
-
 
 .card-footer {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+.card-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 200px;
+}
+
+.card-image {
+  width: 70%;
+  object-fit: cover;
 }
