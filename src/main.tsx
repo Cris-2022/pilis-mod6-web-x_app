@@ -6,13 +6,16 @@ import { HashRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { UserProvider } from './context/user/index.ts';
 import ProductProvider from './context/product/ProductProvider.tsx';
+import OrderProvider from './context/order/store/OrderProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HashRouter>
       <UserProvider>
         <ProductProvider>
-          <App />
+          <OrderProvider>
+            <App />
+          </OrderProvider>
         </ProductProvider>
       </UserProvider>
     </HashRouter>
