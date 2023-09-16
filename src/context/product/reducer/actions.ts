@@ -5,7 +5,8 @@ export enum ACTIONS {
   LOADING,
   ERROR,
   GETPRODUCTS,
-  ADDPRODUCT
+  ADDPRODUCT,
+  DELETEPRODUCT
 };
 
 type LoadingAction =
@@ -26,8 +27,15 @@ type AddProductAction =
     product: Product
   };
 
+type DeleteAction =
+  {
+    type: ACTIONS.DELETEPRODUCT,
+    payload: string
+  };
+
 export type Actions =
   | LoadingAction
   | ErrorAction
   | GetProductAction
   | AddProductAction
+  | DeleteAction
