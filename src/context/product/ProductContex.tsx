@@ -1,10 +1,10 @@
 import { createContext } from 'react';
 import { ProductState, initialState } from './reducer/state';
-import { ProductAction } from './reducer/actions';
+import { Actions } from './reducer/actions';
 
 
 export const ProductContex = createContext<{
   state: ProductState;
-  dispatch: React.Dispatch<ProductAction>;
+  dispatch: React.Dispatch<Actions>;
 }>({ state: initialState, dispatch: () => null })
 

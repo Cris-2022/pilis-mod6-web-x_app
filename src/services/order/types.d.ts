@@ -21,7 +21,7 @@ export interface OrderDetail {
 
 export interface Order {
   id: string;
-  status: string; category: string;
+  status: "processed" | "finished";
   createdAt: string;
   updatedAt: string;
   orderDetail: OrderDetail[];

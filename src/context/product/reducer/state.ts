@@ -3,7 +3,7 @@ import { Product } from "../../../services/products/types";
 export interface ProductState {
     isLoading: boolean;
     isError: boolean;
-    product: Product [] | [];
+    product: Product[] | [];
     image: string | null
 }
 
