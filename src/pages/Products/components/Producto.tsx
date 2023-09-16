@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './Producto.css';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   deleteProduct: (id: string) => void;
 }
 
+
 const Producto = ({
   nombre,
   img,
@@ -17,6 +19,13 @@ const Producto = ({
   productId,
   deleteProduct,
 }: Props) => {
+
+  const navigate = useNavigate()
+
+  const click = () => {
+    navigate(`/product/${productId}`)
+  };
+
   return (
     <div className='cookieCard'>
       <p className='cookieHeading'>{nombre}</p>
@@ -26,7 +35,7 @@ const Producto = ({
       <p className='cookieDescription'>categoria: {categoria}</p>
       <p className='cookieHeading'>precio: {precio} </p>
       <div className='card-footer'>
-        <button className='editButton'>Editar</button>
+        <button className='editButton' onClick={click}>Editar</button>
         <button className='deleButton' onClick={() => deleteProduct(productId)}>
           Eliminar
         </button>
