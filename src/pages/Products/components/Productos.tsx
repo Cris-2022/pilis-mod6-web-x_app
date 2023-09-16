@@ -1,16 +1,14 @@
 import { useContext, useEffect } from 'react';
-import Producto from "./Producto";
-import Form from "./Form";
-import './Productos.css'
+import Producto from './Producto';
+import Form from './Form';
+import './Productos.css';
 import { ProductContex } from '../../../context/product/ProductContex';
 import { Product, getProducts } from '@/services/products';
 import { ACTIONS } from '@/context/product/reducer/actions';
 import { UserContext } from '@/context/user';
 import deleteProduct from '@/services/products/deleteProduct';
 
-
 const Productos = () => {
-
   const { state, dispatch } = useContext(ProductContex);
   const { tokens } = useContext(UserContext);
 
@@ -24,7 +22,7 @@ const Productos = () => {
 
     dispatch({
       type: ACTIONS.GETPRODUCTS,
-      product: result
+      product: result!,
     });
   };
 
@@ -38,43 +36,39 @@ const Productos = () => {
       const token = tokens.bearer_token;
       const { isError } = await deleteProduct(token, id);
       if (isError) {
-        alert("Error")
+        alert('Error');
         return dispatch({ type: ACTIONS.ERROR });
       }
       dispatch({
         type: ACTIONS.DELETEPRODUCT,
-        payload: id
+        payload: id,
       });
-      alert("Producto eliminado");
-    };
+      alert('Producto eliminado');
+    }
   };
 
-
   return (
-
     <div>
       <h1>Gestión de productos</h1>
       <Form />
       <div className='grid'>
-        {
-          product.map((product: Product) => {
-            console.log("PRODUCT", product)
-            return (
-              <Producto
-                key={product.id}
-                productId={product.id}
-                nombre={product.name}
-                img={product.image}
-                categoria={product.category}
-                precio={product.price}
-                deleteProduct={handleDelete}
-              />
-            );
-          })
-        }
+        {product.map((product: Product) => {
+          console.log('PRODUCT', product);
+          return (
+            <Producto
+              key={product.id}
+              productId={product.id}
+              nombre={product.name}
+              img={product.image}
+              categoria={product.category}
+              precio={product.price}
+              deleteProduct={handleDelete}
+            />
+          );
+        })}
       </div>
     </div>
-  )
+  );
 };
 
 export default Productos;
