@@ -2,22 +2,25 @@ import { useContext, useEffect } from 'react';
 import Producto from "./Producto";
 import Form from "./Form";
 import './Productos.css'
-// import json from "../../../assets/products.json";
 import { ProductContex } from '../../../context/product/ProductContex';
-import { getProducts } from '@/services/products';
+import { Product, getProducts } from '@/services/products';
 import { ACTIONS } from '@/context/product/reducer/actions';
+import { UserContext } from '@/context/user';
+import deleteProduct from '@/services/products/deleteProduct';
 
 
 const Productos = () => {
 
-  const { state, dispatch } = useContext(ProductContex)
-  const { product } = state
+  const { state, dispatch } = useContext(ProductContex);
+  const { tokens } = useContext(UserContext);
+
+  const { product } = state;
 
   const fetchProduct = async () => {
-    dispatch({ type: ACTIONS.LOADING })
+    dispatch({ type: ACTIONS.LOADING });
 
-    const { result, isError } = await getProducts()
-    if (isError && !result) dispatch({ type: ACTIONS.ERROR })
+    const { result, isError } = await getProducts();
+    if (isError && !result) dispatch({ type: ACTIONS.ERROR });
 
     dispatch({
       type: ACTIONS.GETPRODUCTS,
@@ -29,30 +32,48 @@ const Productos = () => {
     fetchProduct();
   }, [dispatch]);
 
+  const handleDelete = async (id: string) => {
+    dispatch({ type: ACTIONS.LOADING });
+    if (tokens) {
+      const token = tokens.bearer_token;
+      const { isError } = await deleteProduct(token, id);
+      if (isError) {
+        alert("Error")
+        return dispatch({ type: ACTIONS.ERROR });
+      }
+      dispatch({
+        type: ACTIONS.DELETEPRODUCT,
+        payload: id
+      });
+      alert("Producto eliminado");
+    };
+  };
+
+
   return (
 
     <div>
       <h1>Gestión de productos</h1>
-      <Form/>
+      <Form />
       <div className='grid'>
         {
-          product.map((product) => {
+          product.map((product: Product) => {
             return (
               <Producto
                 key={product.id}
+                productId={product.id}
                 nombre={product.name}
                 img={product.image}
                 categoria={product.category}
                 precio={product.price}
+                deleteProduct={handleDelete}
               />
             );
           })
         }
-
-      F</div>
+      </div>
     </div>
-
   )
-}
+};
 
 export default Productos;

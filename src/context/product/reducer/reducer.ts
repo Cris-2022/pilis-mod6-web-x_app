@@ -32,6 +32,14 @@ function productReducer(state: ProductState, action: Actions): ProductState {
         product: [...state.product, action.product]
       };
 
+    case ACTIONS.DELETEPRODUCT:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        product: state.product.filter(product => product.id !== action.payload)
+      };
+
     default:
       return state;
   };
