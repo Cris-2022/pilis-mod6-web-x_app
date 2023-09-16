@@ -5,6 +5,7 @@ import { OrderContext } from '@/context/order/store/OrderContext';
 import { UserContext } from '@/context/user';
 import { ACTIONS } from '@/context/order/reducer/actions';
 import getOrders from '@/services/order/getOrders';
+import IsLoading from './IsLoading';
 
 const Orders = () => {
   const { state, dispatch } = useContext(OrderContext);
@@ -12,27 +13,26 @@ const Orders = () => {
 
   const { orders } = state;
 
-  const fetchOrders = async () => {
-    dispatch({ type: ACTIONS.LOADING });
-
-    if (tokens) {
-      const token = tokens.bearer_token;
-      const { result, isError } = await getOrders(token);
-
-      if (isError && !result) {
-        return dispatch({ type: ACTIONS.ERROR });
-      }
-
-      if (result)
-        dispatch({
-          type: ACTIONS.GET_ORDERS,
-          payload: result,
-        });
-      [];
-    }
-  };
-
   useEffect(() => {
+    const fetchOrders = async () => {
+      dispatch({ type: ACTIONS.LOADING });
+
+      if (tokens) {
+        const token = tokens.bearer_token;
+        const { result, isError } = await getOrders(token);
+
+        if (isError && !result) {
+          return dispatch({ type: ACTIONS.ERROR });
+        }
+
+        if (result)
+          dispatch({
+            type: ACTIONS.GET_ORDERS,
+            payload: result,
+          });
+        [];
+      }
+    };
     fetchOrders();
   }, []);
 
@@ -40,6 +40,8 @@ const Orders = () => {
     <div>
       <div className='head-prod'>
         <p className='set-p'>Gestione las ordenes desde aquí.</p>
+        <IsLoading />
+
         <h1>Ordenes</h1>
       </div>
 

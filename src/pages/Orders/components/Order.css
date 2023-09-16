@@ -15,7 +15,7 @@
 .cookieCard::before {
   width: 150px;
   height: 250px;
-  content: "";
+  content: '';
   background: #f6931e;
   position: absolute;
   z-index: 1;
@@ -44,7 +44,7 @@
 .editButton {
   padding: 11px 20px;
   background-color: #4d4a95;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   border: none;
   color: rgb(241, 241, 241);
   cursor: pointer;
@@ -53,11 +53,11 @@
 }
 
 .deleButton {
-  padding: 11px 20px;   
+  padding: 11px 20px;
   background-color: #f0f0f5;
   color: #f6931e;
-  transition-duration: .2s;
-  border: none;    
+  transition-duration: 0.2s;
+  border: none;
   cursor: pointer;
   font-weight: 600;
   z-index: 2;
@@ -66,18 +66,51 @@
 .editButton:hover {
   background-color: #f0f0f5;
   color: #4d4a95;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
 
 .deleButton:hover {
-  background-color: #f6931e;    
+  background-color: #f6931e;
   color: rgb(241, 241, 241);
-  transition-duration: .2s;
+  transition-duration: 0.2s;
 }
-
 
 .card-footer {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+/* Bloque de botón */
+.button {
+  /* Estilos predeterminados para el botón */
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Modificador "processing" */
+.button--processing {
+  /* Estilos específicos cuando el botón está en estado "processing" */
+  background-color: #ffc107;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Modificador "finish" */
+.button--finish {
+  /* Estilos específicos cuando el botón está en estado "finish" */
+  background-color: #28a745;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Modificador "disable" */
+.button--disable {
+  /* Estilos específicos cuando el botón está en estado "disable" */
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }

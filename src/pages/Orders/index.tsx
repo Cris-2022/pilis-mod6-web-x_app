@@ -1,17 +1,14 @@
-import "./Order.css"
-import Ordenes from "../Orders/components/Orders"
-import Estados from "./components/Estados"
+import Ordenes from '../Orders/components/Orders';
+import './Order.css';
+import Estados from './components/Estados';
 
 const Orders = () => {
-
-    return (
-
+  return (
     <div className='main-container'>
-        <Estados/>
-        <Ordenes/>        
+      <Estados />
+      <Ordenes />
     </div>
+  );
+};
 
-    )
-}
-
-export default Orders
+export default Orders;

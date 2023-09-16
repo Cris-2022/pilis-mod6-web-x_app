@@ -1,23 +1,19 @@
 import ENDPOINTS from '@/utils/endpoints';
 import { METHODS, Response, createJsonBodyOptions } from '@/utils/request';
-import { Order } from './types';
+type Status = 'processed' | 'finished';
 
 type Result = Response;
-const updateOrder = async (
-  id: string,
-  data: Partial<Order>,
-): Promise<Result> => {
-
+const updateOrder = async (id: string, status: Status): Promise<Result> => {
   const url = `${ENDPOINTS.ORDERS}/${id}`;
-  const options = createJsonBodyOptions(data);
+  const options = createJsonBodyOptions({ status });
   const method = METHODS.PUT;
 
   const response = await fetch(url, { ...options, method });
 
-  const status = response.status;
+  const _status = response.status;
   const isError = !response.ok;
 
-  return { isError, status };
-}
+  return { isError, status: _status };
+};
 
 export default updateOrder;
