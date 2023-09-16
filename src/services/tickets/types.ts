@@ -1,5 +1,5 @@
 export interface Ticket {
-  id: string;
+  ticketId: string;
   createAt: string;
   isDelivered: boolean;
   isExpired: boolean;

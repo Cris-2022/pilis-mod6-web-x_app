@@ -1,12 +1,13 @@
 import ENDPOINTS from '@/utils/endpoints';
-import { Response } from '@/utils/request';
+import { METHODS, Response } from '@/utils/request';
 
 type Result = Response;
 async function deliver(token: string, id: string): Promise<Result> {
   const url = `${ENDPOINTS.DELIVER}/${id}`;
 
   const headers = { Authorization: `Bearer ${token}` };
-  const options = { headers };
+  const method = METHODS.PUT;
+  const options = { headers, method };
 
   const response = await fetch(url, options);
 
