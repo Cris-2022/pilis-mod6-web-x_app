@@ -38,3 +38,10 @@ export function createFormDataOptionAuth(token: string, body?: FormData) {
 
   return { headers, body };
 }
+
+export function createDataOptionAuth(token: string) {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  return { headers };
+};
