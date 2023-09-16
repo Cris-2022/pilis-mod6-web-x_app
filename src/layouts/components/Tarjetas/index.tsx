@@ -1,5 +1,5 @@
 import './style.css';
-import img1 from '../../../assets/Tarjetas/img-1.png';
+import img1 from '@/assets/Tarjetas/img-1.png';
 import img2 from '@/assets/Tarjetas/img-2.png';
 import img3 from '@/assets/Tarjetas/img-3.png';
 

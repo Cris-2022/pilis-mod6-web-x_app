@@ -15,7 +15,6 @@ type FormValues = {
   stock: number;
 };
 
-
 const Form = () => {
   const { dispatch } = useContext(ProductContex);
   const { register, handleSubmit } = useForm<FormValues>({});
@@ -37,7 +36,7 @@ const Form = () => {
       }
       dispatch({
         type: ACTIONS.ADDPRODUCT,
-        product: result,
+        product: result!,
       });
       alert(JSON.stringify(result));
     }
