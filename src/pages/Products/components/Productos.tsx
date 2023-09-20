@@ -1,12 +1,11 @@
 import { useContext, useEffect } from 'react';
-import Producto from './Producto';
-import Form from './Form';
-import './Productos.css';
+import Producto from "./Producto";
 import { ProductContex } from '../../../context/product/ProductContex';
 import { Product, getProducts } from '@/services/products';
 import { ACTIONS } from '@/context/product/reducer/actions';
 import { UserContext } from '@/context/user';
 import deleteProduct from '@/services/products/deleteProduct';
+import './Productos.css'
 
 const Productos = () => {
   const { state, dispatch } = useContext(ProductContex);
@@ -50,7 +49,6 @@ const Productos = () => {
   return (
     <div>
       <h1>Gestión de productos</h1>
-      <Form />
       <div className='grid'>
         {product.map((product: Product) => {
           console.log('PRODUCT', product);

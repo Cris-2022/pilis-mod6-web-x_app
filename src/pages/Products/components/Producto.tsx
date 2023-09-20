@@ -20,8 +20,8 @@ const Producto = ({
 }: Props) => {
   const navigate = useNavigate();
 
-  const click = () => {
-    navigate(`/product/${productId}`);
+  const editProduct = () => {
+    navigate(`/product/${productId}`)
   };
 
   return (
@@ -33,9 +33,7 @@ const Producto = ({
       <p className='cookieDescription'>categoria: {categoria}</p>
       <p className='cookieHeading'>precio: {precio} </p>
       <div className='card-footer'>
-        <button className='editButton' onClick={click}>
-          Editar
-        </button>
+        <button className='editButton' onClick={editProduct}>Editar</button>
         <button className='deleButton' onClick={() => deleteProduct(productId)}>
           Eliminar
         </button>
