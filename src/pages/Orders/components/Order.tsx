@@ -1,5 +1,5 @@
 import './Order.css';
-
+import { Row } from 'react-bootstrap';
 import { ACTIONS } from '@/context/order/reducer/actions';
 import { Case, Message } from '@/components/Message';
 import { OrderContext } from '@/context/order/store/OrderContext';
@@ -74,25 +74,28 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
   const updateState = useOrderCard(id);
 
   return (
-    <div className='cookieCard'>
-      <h2>Orden id: {id}</h2>
-      <h4>Fecha y hora:{Fecha_hora} </h4>
-      <h4>Estado: {estado}</h4>
-      <h3>Total: {total} </h3>
+    <>
+    
+    <Row>
+    <div className="card text-white bg-secondary mb-3" Style="max-width: 25rem;">
+      <h4>Orden id: {id}</h4>
+      <h6>Fecha y hora:{Fecha_hora} </h6>
+      <h6>Estado: {estado}</h6>
+      <h5>Total: {total} </h5>
       <div className='card-footer'>
         <Message status={estado}>
           <Case status={STATUS.PENDING}>
-            <button
+            <button 
               onClick={() => updateState(STATUS.PENDING)}
-              className='button button--processing'
+              className='button--processing btn btn-warning'
             >
               Procesar
             </button>
           </Case>
           <Case status={STATUS.PROCESSED}>
-            <button
+            <button type="button"
               onClick={() => updateState(STATUS.PROCESSED)}
-              className='button button--finish'
+              className='button button--finish btn btn-success'
             >
               finalizar
             </button>
@@ -102,7 +105,9 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
           </Case>
         </Message>
       </div>
-    </div>
+      </div>
+    </Row>
+    </>
   );
 };
 

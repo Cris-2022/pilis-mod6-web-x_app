@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App.tsx';
+import './bootstrap.min.css';
 import { UserProvider } from './context/user/index.ts';
 import ProductProvider from './context/product/ProductProvider.tsx';
 import OrderProvider from './context/order/store/OrderProvider.tsx';
