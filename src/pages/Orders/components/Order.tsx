@@ -1,5 +1,4 @@
 import './Order.css';
-
 import { ACTIONS } from '@/context/order/reducer/actions';
 import { Case, Message } from '@/components/Message';
 import { OrderContext } from '@/context/order/store/OrderContext';
@@ -88,17 +87,17 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
       <div className="card-body">
         <Message status={estado}>
           <Case status={STATUS.PENDING}>
-            <button
+            <button 
               onClick={() => updateState(STATUS.PENDING)}
-              className='button button--processing'
+              className='button--processing btn btn-warning'
             >
               Procesar
             </button>
           </Case>
           <Case status={STATUS.PROCESSED}>
-            <button
+            <button type="button"
               onClick={() => updateState(STATUS.PROCESSED)}
-              className='button button--finish'
+              className='button button--finish btn btn-success'
             >
               finalizar
             </button>
@@ -108,7 +107,7 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
           </Case>
         </Message>
       </div>
-    </div>
+      </div>
   );
 };
 
