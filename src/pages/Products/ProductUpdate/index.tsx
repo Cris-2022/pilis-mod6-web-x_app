@@ -1,32 +1,49 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './style.css';
-import { categories } from '@/utils/productCategory';
 import { UserContext } from '@/context/user';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ACTIONS } from '@/context/product/reducer/actions';
 import { ProductContex } from '@/context/product/ProductContex';
-import { ProductFormData } from '@/services/products';
+import { ProductFormData, getProduct } from '@/services/products';
 import updateProduct from '@/services/products/updateProduct';
+import ErrorMessage from './ErrorMessage';
+import { SelectCategory } from '../components/SelectCategory';
+import { FormValues } from '../ProductAdd/typesProductForm';
 
-
-type FormValues = {
-  name: string;
-  category: string;
-  price: number;
-  image: FileList;
-  stock: number;
-};
 
 export default function ProductUpdate() {
 
   const { tokens } = useContext(UserContext);
   const { dispatch } = useContext(ProductContex);
-  const { register, handleSubmit } = useForm<FormValues>({});
+  const { register, handleSubmit, reset, control, setValue } = useForm<FormValues>({});
+
   const params = useParams()
   const navigate = useNavigate()
 
   const productId = params.id
+  useEffect(() => {
+    const getDefaultValue = async () => {
+      if (productId) {
+        const product = await getProduct(productId)
+        const { result } = product
+        if (result) {
+          const defaultValues = {
+            name: result.name,
+            category: result.category,
+            price: result.price,
+            stock: result.stock,
+          }
+          reset(defaultValues)
+          // setValue("categories", defaultValues.category)
+        }
+      };
+      (
+        <ErrorMessage status={100} />
+      )
+    };
+    getDefaultValue()
+  }, [reset, setValue])
 
   const onSubmit: SubmitHandler<FormValues> = async data => {
     dispatch({ type: ACTIONS.LOADING });
@@ -48,12 +65,12 @@ export default function ProductUpdate() {
         alert("Producto Actualizado");
       }
     }
-    navigate("/products/")
+    navigate("/products")
   };
+
 
   return (
     <div className='sign-in-container'>
-
       <form onSubmit={handleSubmit(onSubmit)} className='sign-in-form'>
         <span>Nombre del producto</span>
         <input
@@ -63,13 +80,7 @@ export default function ProductUpdate() {
           placeholder='ej: Nueva hamburguesa Dibu'
         />
         <span>Seleccione categoria</span>
-        <select {...register('category')}>
-          {categories.map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        <SelectCategory controler={control} />
         <span>Ingrese precio</span>
         <input
           {...register('price', { required: true })}
@@ -91,7 +102,7 @@ export default function ProductUpdate() {
         />
         <button className='btn-form'>Guardar cambios</button>
       </form>
-      <Link to='/'>
+      <Link to='/products'>
         <button className='back'>Volver</button>
       </Link>
     </div>
