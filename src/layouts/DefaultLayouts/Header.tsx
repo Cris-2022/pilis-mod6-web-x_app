@@ -6,7 +6,7 @@ import login from '@/assets/login.png';
 export default function Header() {
   return (
     <>
-    <header className='Navigation'>
+    <header>
     
   <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div className="container-fluid">
