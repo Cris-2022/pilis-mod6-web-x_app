@@ -11,8 +11,8 @@ interface Props {
 export const SelectCategory = ({ controler }: Props) => {
   const options: Option[] = categories.map((category) => (
     {
-      value: category,
-      label: category
+      value: category.value,
+      label: category.name
     }
   ));
 
@@ -24,7 +24,7 @@ export const SelectCategory = ({ controler }: Props) => {
         <Select
           {...field}
           options={options}
-            />
+        />
       )}
     />
   );

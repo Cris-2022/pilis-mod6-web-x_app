@@ -6,8 +6,24 @@ export const HELADOS = "Helados"
 
 export const categories =
   [
-    HAMBURGUESAS,
-    BEBIDAS,
-    SANDWICHES,
-    HELADOS
+    {
+      name: "Hamburguesas",
+      value: "hamburguesas"
+    },
+    {
+      name: "Bebidas",
+      value: "bebidas"
+    },
+    {
+      name: "Sandwiches",
+      value: "sandwiches"
+    },
+    {
+      name: "Pizzas",
+      value: "pizzas"
+    },
+    {
+      name: "Postres",
+      value: "postres"
+    }
   ];
