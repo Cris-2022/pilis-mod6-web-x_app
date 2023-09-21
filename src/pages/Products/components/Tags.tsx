@@ -1,25 +1,30 @@
-import json from '@/assets/tags.json';
+import { categorias } from '@/assets/categorias';
 import Tag from './Tag';
 import './Tags.css';
 import { useNavigate } from 'react-router-dom';
 
+interface TagsProps {
+  setFilteredCategory: (category: string | null) => void
+};
 
-
-
-const Tags = () => {
+const Tags: React.FC<TagsProps> = ({ setFilteredCategory }) => {
 
   const navigate = useNavigate()
   const addProduct = () => {
-    navigate(`/product/add`)
+    navigate(`/product/add`);
   };
 
-  const { tags } = json;
   return (
     <div className='tag-container'>
       <h3 className='tag-title'>Tags/filtros</h3>
       <button onClick={addProduct}>Agregar productos</button>
-      {tags.map(tag => (
-        <Tag key={tag.id} nombre={tag.nombre} />
+      {categorias.map(category => (
+        <Tag
+          key={category.id}
+          nombre={category.nombre}
+          setFilteredCategory={setFilteredCategory}
+          category={category.category}
+        />
       ))}
     </div>
   );
