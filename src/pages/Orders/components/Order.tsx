@@ -76,8 +76,8 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
   return (
     <>
     
-    <Row>
-    <div className="card text-white bg-secondary mb-3" Style="max-width: 25rem;">
+    <Row className="justify-content-md-center">
+    <div className="card text-white bg-secondary mb-3" Style="max-width: 20rem;">
       <h4>Orden id: {id}</h4>
       <h6>Fecha y hora:{Fecha_hora} </h6>
       <h6>Estado: {estado}</h6>
@@ -95,7 +95,7 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
           <Case status={STATUS.PROCESSED}>
             <button type="button"
               onClick={() => updateState(STATUS.PROCESSED)}
-              className='button button--finish btn btn-success'
+              className='button button--finish btn btn-outline-success'
             >
               finalizar
             </button>

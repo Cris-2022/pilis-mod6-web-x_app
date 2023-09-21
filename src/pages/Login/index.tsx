@@ -1,9 +1,10 @@
+import { Row } from 'react-bootstrap';
 import { useUserContext } from '@/context/user';
 import { UserCredentials } from '@/services/user';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
-import './style.css';
+/* import './style.css'; */
 
 export function Login() {
   const { logIn, isLogin, isLoading, isError, status } = useUserContext();
@@ -14,7 +15,8 @@ export function Login() {
   };
 
   return (
-    <div className='sign-in-container'>
+    <Row>
+    <div className='card text-white bg-secondary'>
       {isLogin && <Navigate to='/' replace />}
       {isLoading && <h1>cargando...</h1>}
       {isError && <ErrorMessage status={status!} />}
@@ -36,8 +38,9 @@ export function Login() {
         <button className='btn-form'>Iniciar Sesión</button>
       </form>
       <Link to='/'>
-        <button className='back'>Volver al Inicio</button>
+        <button className='btn btn-info'>Volver al Inicio</button>
       </Link>
     </div>
+    </Row>
   );
 }

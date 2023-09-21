@@ -1,6 +1,7 @@
 import {estados} from '../../../assets/estados';
 import Estado from './Estado';
 import './Estados.css';
+import { Row } from 'react-bootstrap';
 
 interface EstadosProps {
   handleStatus: (status: string | null) => void;
@@ -9,8 +10,9 @@ interface EstadosProps {
 const Estados: React.FC<EstadosProps> = ({ handleStatus }) => {
 
   return (
-    <div className='tag-container'>
-      <h3 className='tag-title'>Filtro por estado</h3>
+    <Row>
+    <div className='text-black bg-secondary'>
+      <h5 className='panel-title'>Estados</h5>
 
       {estados.map(tag => (
         <Estado
@@ -21,6 +23,8 @@ const Estados: React.FC<EstadosProps> = ({ handleStatus }) => {
         />
       ))}
     </div>
+    </Row>
+
   );
 };
 
