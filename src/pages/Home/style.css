@@ -45,7 +45,7 @@
 /* TARJETAS */
 
 .grid-card {
-  max-width: max-content;
+  max-width: fit-content;
   display: flex;
   flex-direction: row;
 }

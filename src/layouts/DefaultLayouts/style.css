@@ -17,7 +17,7 @@
 
 /* Logo */
 .logo {
-  height: calc(var(--height-header) + 10px);
+  height: 70px;
 }
 
 /* xApp */
