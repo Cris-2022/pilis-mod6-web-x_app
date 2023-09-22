@@ -5,3 +5,4 @@ export { default as Preferences } from './Preferences';
 export { default as Tickets } from './Tickets';
 export { default as ProductUpdate } from './Products/ProductUpdate';
 export { default as ProductAdd } from './Products/ProductAdd';
+export { default as DeliverOrder } from './DeliverOrder';
