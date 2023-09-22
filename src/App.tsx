@@ -1,8 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home, Preferences, Products, Orders, Tickets, ProductUpdate, ProductAdd } from './pages';
+import {
+  Home,
+  Preferences,
+  Products,
+  Orders,
+  Tickets,
+  ProductUpdate,
+  ProductAdd,
+} from './pages';
 import Layouts from './layouts';
 import { Login } from './pages/Login';
-import DeliveredOrders from './pages/Tickets/TableOrder/DeliveredOrders';
+import DeliveredOrders from './pages/DeliverOrder';
 
 function App() {
   return (
