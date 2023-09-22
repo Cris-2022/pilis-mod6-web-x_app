@@ -70,7 +70,7 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
                   id={order.id}
                   code={order.code}
                   description={order.detail.map(detail => detail.description)}
-                  Fecha_hora={order.createdAt}
+                  Fecha_hora={new Date(order.createdAt).toLocaleTimeString()}
                   estado={order.status}
                   total={order.detail.reduce(
                     (total, order) => total + Number(order.subTotal),
@@ -87,7 +87,7 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
                   id={order.id}
                   code={order.code}
                   description={order.detail.map(detail => detail.description)}
-                  Fecha_hora={order.createdAt}
+                  Fecha_hora={new Date(order.createdAt).toLocaleTimeString()}
                   estado={order.status}
                   total={order.detail.reduce(
                     (total, order) => total + Number(order.subTotal),

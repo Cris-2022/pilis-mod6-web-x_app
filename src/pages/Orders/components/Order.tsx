@@ -97,7 +97,7 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
           <Case status={STATUS.PROCESSED}>
             <button type="button"
               onClick={() => updateState(STATUS.PROCESSED)}
-              className='button button--finish btn btn-outline-success'
+              className='button button--finish btn btn-success'
             >
               finalizar
             </button>
