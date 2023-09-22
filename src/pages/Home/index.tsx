@@ -7,7 +7,7 @@ import banner_4 from '@/assets/Carousel/4.jpg';
 
 export default function Home() {
   return (
-    <div>
+    <div className='home'>
       <section className='automatic'>
         <img className='slider-imag' src={banner_1} alt='' />
         <img className='slider-imag' src={banner_2} alt='' />
