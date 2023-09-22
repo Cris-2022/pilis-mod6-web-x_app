@@ -8,7 +8,7 @@ class Storage<T> {
     return JSON.parse(stringValue);
   }
   constructor(key: string) {
-    this._key = key;
+    this._key = `@${key}`;
   }
 
   get key(): string {

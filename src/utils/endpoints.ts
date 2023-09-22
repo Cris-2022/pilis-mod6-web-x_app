@@ -10,10 +10,10 @@ const ENDPOINTS = {
   PRODUCTS: `${API}/product`,
   ORDERS: `${API}/order`,
 
-  TICKETS: `${API}/tickets`,
-  CODE_TICKET: `${API}/tickets/code`,
+  TICKETS: `${API}/order`,
+  CODE_TICKET: `${API}/order/code`,
 
-  DELIVER: `${API}/tickets/deliver`,
+  DELIVER: `${API}/order/deliver`,
 };
 
 export default ENDPOINTS;

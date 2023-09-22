@@ -6,7 +6,7 @@ export default function DeliverButtons() {
 
   return (
     <div>
-      {!ticket.isDelivered || !ticket.isExpired || (
+      {!ticket.isDelivered && !ticket.isExpired && (
         <button onClick={deliver}>Entregar</button>
       )}
       <button onClick={clear}>Cancelar</button>
