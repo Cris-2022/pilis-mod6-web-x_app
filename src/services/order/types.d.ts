@@ -24,6 +24,6 @@ export interface Order {
   status: "processed" | "finished";
   createdAt: string;
   updatedAt: string;
-  orderDetail: OrderDetail[];
+  detail: OrderDetail[];
 }
 
