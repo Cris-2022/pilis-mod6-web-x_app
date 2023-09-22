@@ -22,8 +22,8 @@ export interface OrderDetail {
 export interface Order {
   id: string;
   status: "processed" | "finished";
-  createdAt: string;
-  updatedAt: string;
+  createAt: string;
+  updateAt: string;
   detail: OrderDetail[];
 }
 

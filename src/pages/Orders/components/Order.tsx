@@ -78,10 +78,10 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
     
     <Row className="justify-content-md-center">
     <div className="card text-white bg-secondary mb-3" Style="max-width: 20rem;">
-      <h4>Orden id: {id}</h4>
-      <h6>Fecha y hora:{Fecha_hora} </h6>
+      <h5>Orden id: {id}</h5>
+      <h6>Hora Pedido: {Fecha_hora} </h6>
       <h6>Estado: {estado}</h6>
-      <h5>Total: {total} </h5>
+      <h5>Total: $ {total} </h5>
       <div className='card-footer'>
         <Message status={estado}>
           <Case status={STATUS.PENDING}>
@@ -95,7 +95,7 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
           <Case status={STATUS.PROCESSED}>
             <button type="button"
               onClick={() => updateState(STATUS.PROCESSED)}
-              className='button button--finish btn btn-outline-success'
+              className='button button--finish btn btn-success'
             >
               finalizar
             </button>

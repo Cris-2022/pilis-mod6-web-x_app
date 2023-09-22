@@ -8,11 +8,11 @@ interface EstadoProps {
 };
 
 const Estado: React.FC<EstadoProps> = ({ nombre, handleStatus, status }) => {
-  return <span
+  return <button
     className='tag'
     onClick={() => handleStatus(status)}>
     {nombre}
-  </span>;
+  </button>;
 };
 
 export default Estado;
