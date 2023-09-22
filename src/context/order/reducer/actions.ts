@@ -5,7 +5,8 @@ export enum ACTIONS {
   LOADING,
   ERROR,
   GET_ORDERS,
-  ORDER_STATUS
+  ORDER_STATUS,
+  ORDER_ISDELIVERED
 };
 
 type LoadingAction =
@@ -24,8 +25,12 @@ type OrderStatusActions = {
   payload: "processed" | "finished"
 };
 
+type OrderDeliverdAction = {
+  type: ACTIONS.ORDER_ISDELIVERED,
+};
 export type Actions =
   | LoadingAction
   | ErrorAction
   | GetOrdersAction
   | OrderStatusActions
+  | OrderDeliverdAction

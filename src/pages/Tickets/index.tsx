@@ -9,12 +9,12 @@ import DeliverButtons from './DeliverButtons';
 export default function Tickets() {
   return (
     <TicketProvider>
-      <main className='tickets'>
+      {/* <main className='tickets'> */}
         <FormTickets />
         <DetailTicket />
         <DeliverButtons />
         <ErrorMessage />
-      </main>
+      {/* </main> */}
     </TicketProvider>
   );
 }

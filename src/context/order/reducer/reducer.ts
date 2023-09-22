@@ -32,6 +32,14 @@ function orderReducer(state: OrderState, action: Actions): OrderState {
         status: action.payload
       };
 
+    case ACTIONS.ORDER_ISDELIVERED:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        orders: state.orders.filter(order => order.isDelivered === false )
+      };
+
     default:
       return state;
   };
