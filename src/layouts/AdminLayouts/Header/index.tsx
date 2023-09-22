@@ -17,9 +17,10 @@ export default function Header() {
       <Logo logo={logo} />
 
       <Navbar>
-        <Navbar.Link to='/tickets' label='tickets' />
-        <Navbar.Link to='/orders' label='ordenes' />
-        <Navbar.Link to='/products' label='productos' />
+        <Navbar.Link to='/products' label='Productos' />
+        <Navbar.Link to='/orders' label='Ordenes' />
+        <Navbar.Link to='/order/deliver' label='Entega' />
+        <Navbar.Link to='/tickets' label='Tickets' />
       </Navbar>
 
       <Title>XApp</Title>

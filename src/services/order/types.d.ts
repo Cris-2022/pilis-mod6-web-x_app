@@ -21,9 +21,12 @@ export interface OrderDetail {
 
 export interface Order {
   id: string;
+  code: string
   status: "processed" | "finished";
+  isDelivered: boolean;
+  isExpired: boolean
   createdAt: string;
-  updatedAt: string;
+  updateAt: string;
   detail: OrderDetail[];
 }
 
