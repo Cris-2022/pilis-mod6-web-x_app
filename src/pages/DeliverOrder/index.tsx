@@ -5,19 +5,32 @@ import ErrorMessage from '@/pages/Login/ErrorMessage';
 import getOrders from '@/services/order/getOrders';
 import updateDeliveredOrder from '@/services/order/updateOrderDelivered';
 import { useContext, useEffect, useState } from 'react';
-import '@/index.css';
+// import '@/index.css';
 import OrderDetail from './OrderDetail';
 import { Order } from '@/services/order/types';
+import getOrder from '@/services/order/getOrder';
 
 const ordersValidate = (orders: Order[]) =>
   orders.filter(
-    order => order.status === 'finished' && order.isDelivered === false,
+    order =>
+      order.status === 'finished' &&
+      order.isDelivered === false &&
+      order.isExpired === false
   );
 
 export default function DeliveredOrders() {
   const { tokens } = useContext(UserContext);
   const { state, dispatch } = useContext(OrderContext);
   const [orderSelected, setOrderSelected] = useState<Order | null>(null);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
 
   const { orders } = state;
   const ordersFilter = ordersValidate(orders);
@@ -41,6 +54,7 @@ export default function DeliveredOrders() {
       [];
     }
   };
+
   const handleDelivered = async (orderId: string) => {
     dispatch({ type: ACTIONS.LOADING });
     if (tokens) {
@@ -55,6 +69,19 @@ export default function DeliveredOrders() {
     return <ErrorMessage status={500} />;
   };
 
+  const watchOrderDetail = async (orderId: string) => {
+    if (tokens) {
+      const { bearer_token } = tokens;
+      const { result } = await getOrder(bearer_token, orderId)
+      if (result) {
+        setOrderSelected(result)
+        openModal()
+      };
+      return;
+    };
+    <ErrorMessage status={500} />
+  };
+
   useEffect(() => {
     fetchOrders();
   }, []);
@@ -66,7 +93,11 @@ export default function DeliveredOrders() {
       </div>
       {orderSelected && (
         <div className='d-flex justify-content-end mb-3'>
-          <OrderDetail order={orderSelected} />
+          <OrderDetail
+            order={orderSelected}
+            closeModal={closeModal}
+            isOpen={isOpenModal}
+          />
         </div>
       )}
       <div className='table-responsive'>
@@ -102,7 +133,7 @@ export default function DeliveredOrders() {
                   <th scope='row'></th>
                   <th scope='row'></th>
                   <th scope='row'></th>
-                  <td>{p.updateAt}</td>
+                  <td>{p.updateAt.slice(0, 10)}</td>
                   <td>{p.detail[0].description}</td>
                   <td>
                     {p.detail.reduce(
@@ -118,7 +149,7 @@ export default function DeliveredOrders() {
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td style={{ cursor: "pointer" }} onClick={() => watchOrderDetail(p.id)}>Ver</td>
                   <td></td>
                   <td>
                     <button
