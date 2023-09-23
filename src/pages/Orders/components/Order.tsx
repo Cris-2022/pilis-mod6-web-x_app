@@ -77,7 +77,7 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
 
   return (
     <div className="card" style={{ width: "18rem;", backgroundColor: "#8F78C6" }}>
-      <h2>Ticket N°: {code}</h2>
+      <h2> <u>Ticket N°: {code}</u></h2>
       <h2></h2>
       <h2></h2>
       <h2></h2>
