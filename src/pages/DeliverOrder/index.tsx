@@ -4,19 +4,23 @@ import { UserContext } from '@/context/user';
 import ErrorMessage from '@/pages/Login/ErrorMessage';
 import getOrders from '@/services/order/getOrders';
 import updateDeliveredOrder from '@/services/order/updateOrderDelivered';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../css/detail-ticket.css';
-import Ticket from './Ticket';
+import OrderDetail from './OrderDetail';
+import { Order } from '@/services/order/types';
 
-export default function DeliveredOrders() {
-  const { state, dispatch } = useContext(OrderContext);
-  const { orders } = state;
-
-  const { tokens } = useContext(UserContext);
-
-  const ordersFilter = orders.filter(
+const ordersValidate = (orders: Order[]) =>
+  orders.filter(
     order => order.status === 'finished' && order.isDelivered === false,
   );
+
+export default function DeliveredOrders() {
+  const { tokens } = useContext(UserContext);
+  const { state, dispatch } = useContext(OrderContext);
+  const [orderSelected, setOrderSelected] = useState<Order | null>(null);
+
+  const { orders } = state;
+  const ordersFilter = ordersValidate(orders);
 
   const fetchOrders = async () => {
     dispatch({ type: ACTIONS.LOADING });
@@ -37,7 +41,6 @@ export default function DeliveredOrders() {
       [];
     }
   };
-
   const handleDelivered = async (orderId: string) => {
     dispatch({ type: ACTIONS.LOADING });
     if (tokens) {
@@ -61,9 +64,11 @@ export default function DeliveredOrders() {
       <div>
         <h2 className='text-decoration-underline'>Entrega de Ordenes</h2>
       </div>
-      <div className='d-flex justify-content-end mb-3'>
-        <Ticket />
-      </div>
+      {orderSelected && (
+        <div className='d-flex justify-content-end mb-3'>
+          <OrderDetail order={orderSelected} />
+        </div>
+      )}
       <div className='table-responsive'>
         <table className='table table-hover  '>
           <thead>

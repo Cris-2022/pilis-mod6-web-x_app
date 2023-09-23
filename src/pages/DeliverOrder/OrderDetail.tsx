@@ -1,9 +1,10 @@
-import { useTicketContext } from './context';
-import './css/detail-ticket.css';
+import { Order } from '@/services/order/types';
 
-export default function DetailTicket() {
-  const { ticket } = useTicketContext();
-  if (!ticket) return;
+interface Props {
+  order: Order;
+}
+
+export default function OrderDetail({ order }: Props) {
   return (
     <div>
       <table className='detail-ticket'>
@@ -17,14 +18,12 @@ export default function DetailTicket() {
           </tr>
         </thead>
         <tbody>
-          {ticket.detail.map((p, i) => {
+          {order.detail.map((p, i) => {
+            const classRow = `detail-ticket__row${
+              i % 2 ? '' : ' detail-ticket__row--contrast'
+            }`;
             return (
-              <tr
-                key={p.id}
-                className={`detail-ticket__row${
-                  i % 2 ? '' : ' detail-ticket__row--contrast'
-                }`}
-              >
+              <tr key={p.id} className={classRow}>
                 <td className='detail-ticket__data-cell'>{p.id}</td>
                 <td className='detail-ticket__data-cell'>{p.createdAt}</td>
                 <td className='detail-ticket__data-cell'>{p.description}</td>
@@ -39,8 +38,8 @@ export default function DetailTicket() {
             <td colSpan={4}>Total</td>
             <td className='detail-ticket__data-cell'>
               $
-              {ticket.detail.reduce(
-                (total, p) => total + parseFloat(p.subTotal),
+              {order.detail.reduce(
+                (total, product) => total + product.subTotal,
                 0,
               )}
             </td>
