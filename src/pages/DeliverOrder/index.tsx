@@ -5,7 +5,7 @@ import ErrorMessage from '@/pages/Login/ErrorMessage';
 import getOrders from '@/services/order/getOrders';
 import updateDeliveredOrder from '@/services/order/updateOrderDelivered';
 import { useContext, useEffect, useState } from 'react';
-import '../css/detail-ticket.css';
+import '@/index.css';
 import OrderDetail from './OrderDetail';
 import { Order } from '@/services/order/types';
 
