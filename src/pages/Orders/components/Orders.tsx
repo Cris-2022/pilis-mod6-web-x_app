@@ -68,6 +68,8 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
                 <Pedido
                   key={order.id}
                   id={order.id}
+                  code={order.code}
+                  description={order.detail.map(detail => detail.description)}
                   Fecha_hora={order.createdAt}
                   estado={order.status}
                   total={order.detail.reduce(
@@ -83,6 +85,8 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
                 <Pedido
                   key={order.id}
                   id={order.id}
+                  code={order.code}
+                  description={order.detail.map(detail => detail.description)}
                   Fecha_hora={order.createdAt}
                   estado={order.status}
                   total={order.detail.reduce(

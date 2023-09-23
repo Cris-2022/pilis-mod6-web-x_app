@@ -19,6 +19,8 @@ interface Props {
   estado: 'processed' | 'finished';
   Fecha_hora: string;
   total: number;
+  code: string;
+  description: string[]
 }
 
 function useOrderCard(id: string) {
@@ -70,16 +72,20 @@ function useOrderCard(id: string) {
   return updateStateOrder;
 }
 
-const Order = ({ id, Fecha_hora, estado, total }: Props) => {
+const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
   const updateState = useOrderCard(id);
 
   return (
-    <div className='cookieCard'>
-      <h2>Orden id: {id}</h2>
-      <h4>Fecha y hora:{Fecha_hora} </h4>
-      <h4>Estado: {estado}</h4>
-      <h3>Total: {total} </h3>
-      <div className='card-footer'>
+    <div className="card" style={{ width: "18rem;", backgroundColor: "#8F78C6" }}>
+      <h2>Ticket N°: {code}</h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h4>DETALLE: {description.join(" ,")} </h4>
+      {/* <h4>Estado: {estado}</h4> */}
+      <h3>Total: ${total} </h3>
+      <div className="card-body">
         <Message status={estado}>
           <Case status={STATUS.PENDING}>
             <button
@@ -107,3 +113,11 @@ const Order = ({ id, Fecha_hora, estado, total }: Props) => {
 };
 
 export default Order;
+{/* <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> */}
