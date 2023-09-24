@@ -16,7 +16,7 @@ export const Tarjeta = ({
         <img className='imgs' src={imag} alt='imagen' />
         <ul>
           <li>productos: {producto}</li>
-          <li>precio: {precio}</li>
+          <li>precio: $ {precio}</li>
         </ul>
       </div>
     </div>

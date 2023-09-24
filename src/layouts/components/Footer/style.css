@@ -5,7 +5,9 @@
   justify-content: center;
   width: 100%;
   height: 10vh;
-
-  background-color: var(--base-color);
+/* 
+  background-color: var(--base-color); */
+  /* background-color: #25A8E0; */
+  background-color: #4c4a95;
   color: white;
 }

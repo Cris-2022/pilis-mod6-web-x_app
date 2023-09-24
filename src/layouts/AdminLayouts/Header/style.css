@@ -12,7 +12,8 @@
   width: 100%;
   padding-top: 2em;
 
-  background: var(--base-color);
+  /* background: var(--base-color); */
+  background-color: #4c4a95;
 }
 
 .header__logo {
@@ -43,7 +44,7 @@
 }
 
 .header__title {
-  font-size: 3.2em;
+  font-size: 1.2em;
   color: white;
 }
 

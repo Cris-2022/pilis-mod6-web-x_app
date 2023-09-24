@@ -9,7 +9,7 @@ interface EstadoProps {
 
 const Estado: React.FC<EstadoProps> = ({ nombre, handleStatus, status }) => {
   return <button
-    className='tag'
+    className='btn'
     onClick={() => handleStatus(status)}>
     {nombre}
   </button>;

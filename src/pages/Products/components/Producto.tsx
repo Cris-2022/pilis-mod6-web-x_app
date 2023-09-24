@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './Producto.css';
+import { Row } from 'react-bootstrap';
 
 interface Props {
   nombre: string;
@@ -25,13 +26,18 @@ const Producto = ({
   };
 
   return (
-    <div className='cookieCard2'>
-      <p className='cookieHeading'>{nombre}</p>
+
+    <Row className="container justify-content-md-center">
+    <div className="card text-black mb-3 bg-light" Style="max-width: 20rem;">
+
+      <h4>{nombre}</h4>
+
       <div className='card-image-container'>
         <img className='card-image' src={img} alt={`imagen - ${nombre}`} />
       </div>
-      <p className='cookieDescription'>categoria: {categoria}</p>
-      <p className='cookieHeading'>precio: {precio} </p>
+
+      <p className='cookieDescription'>Categoría: {categoria}</p>
+      <p className='cookieHeading'>Precio: $ {precio} </p>
       <div className='card-footer'>
         <button className='editButton' onClick={editProduct}>Editar</button>
         <button className='deleButton' onClick={() => deleteProduct(productId)}>
@@ -39,6 +45,7 @@ const Producto = ({
         </button>
       </div>
     </div>
+    </Row>
   );
 };
 

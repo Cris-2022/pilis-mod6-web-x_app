@@ -27,7 +27,8 @@ export default function Preferences() {
   if (!isLogin) return <Navigate to='/' replace />;
 
   return (
-    <main className='preferences'>
+    <div className='set-pref'>
+    <main className='preferences bg-light'>
       {isLoading && <h1>cargando...</h1>}
       {user && <UserForm user={user} onSubmit={onSubmit} />}
       <Message isError={isError} status={status} />
@@ -35,5 +36,6 @@ export default function Preferences() {
         cerrar sesión
       </button>
     </main>
+    </div>
   );
 }

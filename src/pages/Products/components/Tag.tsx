@@ -7,7 +7,7 @@ interface Props {
 }
 const Tag = ({ nombre, setFilteredCategory, category }: Props) => {
   return <span
-    className='tag'
+    className='btn'
     onClick={() => setFilteredCategory(category)}
   >
     {nombre}

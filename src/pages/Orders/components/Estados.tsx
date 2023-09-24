@@ -11,8 +11,9 @@ const Estados: React.FC<EstadosProps> = ({ handleStatus }) => {
 
   return (
     <Row>
-    <div className='text-black bg-secondary'>
+    <div className='text-black bg-secondary tag'>
       <h5 className='panel-title'>Estados</h5>
+
 
       {estados.map(tag => (
         <Estado

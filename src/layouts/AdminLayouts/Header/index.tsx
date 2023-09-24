@@ -23,7 +23,7 @@ export default function Header() {
         <Navbar.Link to='/tickets' label='Tickets' />
       </Navbar>
 
-      <Title>XApp</Title>
+      <Title>al servicio de: DELIVERY CHUY</Title>
 
       <User avatar={avatar} username={username} />
     </header>
