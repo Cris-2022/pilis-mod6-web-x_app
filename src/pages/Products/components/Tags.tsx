@@ -2,6 +2,7 @@ import { categorias } from '@/assets/categorias';
 import Tag from './Tag';
 import './Tags.css';
 import { useNavigate } from 'react-router-dom';
+import { Row } from 'react-bootstrap';
 
 interface TagsProps {
   setFilteredCategory: (category: string | null) => void
@@ -15,9 +16,10 @@ const Tags: React.FC<TagsProps> = ({ setFilteredCategory }) => {
   };
 
   return (
-    <div className='tag-container'>
-      <h3 className='tag-title'>Tags/filtros</h3>
-      <button onClick={addProduct}>Agregar productos</button>
+    <Row>
+    <div className='text-black bg-secondary'>      
+      <button className="btn btn-success" onClick={addProduct}>Agregar producto</button>
+
       {categorias.map(category => (
         <Tag
           key={category.id}
@@ -27,6 +29,7 @@ const Tags: React.FC<TagsProps> = ({ setFilteredCategory }) => {
         />
       ))}
     </div>
+    </Row>
   );
 };
 

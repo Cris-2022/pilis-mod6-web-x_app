@@ -47,5 +47,11 @@
 .grid-card {
   max-width: fit-content;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between; 
+}
+
+.fondo{
+  margin: 0px;
+  padding: 0px;
+  background-color: #fbfafb;
 }

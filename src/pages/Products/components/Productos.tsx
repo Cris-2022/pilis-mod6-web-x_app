@@ -5,7 +5,7 @@ import { Product, getProducts } from '@/services/products';
 import { ACTIONS } from '@/context/product/reducer/actions';
 import { UserContext } from '@/context/user';
 import deleteProduct from '@/services/products/deleteProduct';
-import './Productos.css'
+/* import './Productos.css' */
 
 
 interface ProductsProps {
@@ -65,8 +65,13 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
   };
 
   return (
-    <div>
-      <h1>Gestión de productos</h1>
+    <div className='container bg-light'>
+
+      <div className='head-prod'>
+        <p className='set-p'></p>
+        <h3><u>Gestión de Productos</u></h3>
+      </div>
+
       <div className='grid'>
         {
           (productFiltered.length > 0)

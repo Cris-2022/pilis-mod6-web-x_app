@@ -6,9 +6,8 @@ import login from '@/assets/login.png';
 export default function Header() {
   return (
     <>
-    <header>
-    
-  <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <header>      
+<nav className="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div className="container-fluid">
       <Link to='/'>
         <img src={logo} className='logo' />
@@ -19,29 +18,17 @@ export default function Header() {
     </button>
     <div className="collapse navbar-collapse" id="navbarColor01">
       <ul className="navbar-nav me-auto">
-        <li className="nav-item">
-          <a className="nav-link active" href="#">Home
+        <li className="nav-item font-empresa">
+          <a className="nav-link active" href="#">para DELIVERY CHUY - Comidas Rápidas
             <span className="visually-hidden">(current)</span>
           </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Features</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Pricing</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">About</a>
-        </li>
-
-        <Link to='/Login' className='login'>
+        </li>                     
+      </ul>
+      <Link to='/Login' className='login'>
         <img src={login} alt='' />
           <h3 className='text-login'>Iniciar Sesión</h3>
-        </Link>
+      </Link>
 
-        
-      </ul>
-      
     </div>
   </div>
 

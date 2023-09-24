@@ -1,10 +1,9 @@
-import { Row } from 'react-bootstrap';
 import { useUserContext } from '@/context/user';
 import { UserCredentials } from '@/services/user';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
-/* import './style.css'; */
+import './style.css';
 
 export function Login() {
   const { logIn, isLogin, isLoading, isError, status } = useUserContext();
@@ -15,14 +14,15 @@ export function Login() {
   };
 
   return (
-    <Row>
-    <div className='card text-white bg-secondary'>
-      {isLogin && <Navigate to='/' replace />}
-      {isLoading && <h1>cargando...</h1>}
+  <main className='set-main'>
+    <div className="card text-white bg-dark mb-3" Style="max-width: 30rem;">      
+      <div className="card-body">       
+        {isLogin && <Navigate to='/orders' replace />}
+      {isLoading && <h5>cargando...</h5>}
       {isError && <ErrorMessage status={status!} />}
 
       <form onSubmit={handleSubmit(onSubmit)} className='sign-in-form'>
-        <span>Ingresar usuario y contraseña</span>
+        <h5>Ingresar usuario y contraseña</h5>
         <input
           {...register('username', { required: true })}
           className='input-form'
@@ -39,8 +39,10 @@ export function Login() {
       </form>
       <Link to='/'>
         <button className='btn btn-info'>Volver al Inicio</button>
-      </Link>
-    </div>
-    </Row>
+      </Link>   
+      
+      </div>
+    </div>   
+    </main>
   );
 }

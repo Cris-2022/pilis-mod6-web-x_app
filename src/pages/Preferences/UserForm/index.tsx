@@ -26,6 +26,7 @@ export default function UserForm({ user, onSubmit }: Props) {
   const methods = useForm<FormData>();
 
   return (
+<div className='set-pref'> 
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)} className='form'>
         <UserAvatarInput {...user} />
@@ -34,5 +35,6 @@ export default function UserForm({ user, onSubmit }: Props) {
         <button className='form__button'>Guardar Cambios</button>
       </form>
     </FormProvider>
+</div>
   );
 }

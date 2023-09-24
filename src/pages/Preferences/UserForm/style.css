@@ -42,3 +42,10 @@
     background-color: var(--accent-color);
   }
 }
+
+.set-pref{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 80px;
+}

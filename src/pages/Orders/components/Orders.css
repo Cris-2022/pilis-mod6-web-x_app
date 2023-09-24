@@ -58,6 +58,11 @@ color: rgb(241, 241, 241);
 .set-p{
   margin-top: 4%;
   font-size: larger;
+  font-style: italic;  
+}
+
+h3{
+  display: flex;
+  align-content: end;
   font-style: italic;
-  
 }
