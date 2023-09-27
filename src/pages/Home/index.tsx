@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className='container'>
-      <div className='row col-12'>
+      <div>
         <Slider {...settings}>
           <div className='row col-12'>
             <img src={banner_1} alt='' height='450px' />

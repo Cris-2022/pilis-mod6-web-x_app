@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import Producto from "./Producto";
+import Producto from './Producto';
 import { ProductContex } from '../../../context/product/ProductContex';
 import { Product, getProducts } from '@/services/products';
 import { ACTIONS } from '@/context/product/reducer/actions';
 import { UserContext } from '@/context/user';
 import deleteProduct from '@/services/products/deleteProduct';
-/* import './Productos.css' */
-
+import './Productos.css';
 
 interface ProductsProps {
   filteredCategory: string | null;
-};
+}
 
 const Productos = ({ filteredCategory }: ProductsProps) => {
   const { state, dispatch } = useContext(ProductContex);
@@ -35,13 +34,14 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
   }, []);
 
   useEffect(() => {
-    if (filteredCategory === "all") {
-      setProductFiltered(product)
-    }
-    else {
-      const productFilter = product.filter(item => item.category === filteredCategory)
+    if (filteredCategory === 'all') {
+      setProductFiltered(product);
+    } else {
+      const productFilter = product.filter(
+        item => item.category === filteredCategory,
+      );
       if (productFilter.length > 0) {
-        setProductFiltered(productFilter)
+        setProductFiltered(productFilter);
       }
       return;
     }
@@ -55,7 +55,7 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
       if (isError) {
         alert('Error');
         return dispatch({ type: ACTIONS.ERROR });
-      };
+      }
       dispatch({
         type: ACTIONS.DELETEPRODUCT,
         payload: id,
@@ -66,17 +66,14 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
 
   return (
     <div className='container bg-light'>
-
       <div className='head-prod'>
         <p className='set-p'></p>
-        <h3><u>Gestión de Productos</u></h3>
+        <h4 className='title-crud'>Gestión de Productos</h4>
       </div>
 
-      <div className='grid'>
-        {
-          (productFiltered.length > 0)
-            ?
-            productFiltered.map((product: Product) => {
+      <div className='row p-2'>
+        {productFiltered.length > 0
+          ? productFiltered.map((product: Product) => {
               return (
                 <Producto
                   key={product.id}
@@ -89,8 +86,7 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
                 />
               );
             })
-            :
-            product.map((product: Product) => {
+          : product.map((product: Product) => {
               return (
                 <Producto
                   key={product.id}
@@ -102,8 +98,7 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
                   deleteProduct={handleDelete}
                 />
               );
-            })
-        }
+            })}
       </div>
     </div>
   );

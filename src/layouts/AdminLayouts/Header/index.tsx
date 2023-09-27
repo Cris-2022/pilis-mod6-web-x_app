@@ -19,7 +19,7 @@ export default function Header() {
       <Navbar>
         <Navbar.Link to='/products' label='Productos' />
         <Navbar.Link to='/orders' label='Ordenes' />
-        <Navbar.Link to='/order/deliver' label='Entega' />
+        <Navbar.Link to='/order/deliver' label='Entrega' />
         <Navbar.Link to='/tickets' label='Tickets' />
       </Navbar>
 

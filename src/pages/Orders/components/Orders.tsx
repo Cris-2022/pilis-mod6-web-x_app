@@ -56,7 +56,7 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
         <p className='set-p'></p>
         <IsLoading />
 
-        <h4>Gestión de Ordenes</h4>
+        <h4 className='title-crud'>Gestión de Ordenes</h4>
       </div>
       <div className='row'>
         {filteredOrders.length > 0

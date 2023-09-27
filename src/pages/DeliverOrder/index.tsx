@@ -15,7 +15,7 @@ const ordersValidate = (orders: Order[]) =>
     order =>
       order.status === 'finished' &&
       order.isDelivered === false &&
-      order.isExpired === false
+      order.isExpired === false,
   );
 
 export default function DeliveredOrders() {
@@ -72,14 +72,14 @@ export default function DeliveredOrders() {
   const watchOrderDetail = async (orderId: string) => {
     if (tokens) {
       const { bearer_token } = tokens;
-      const { result } = await getOrder(bearer_token, orderId)
+      const { result } = await getOrder(bearer_token, orderId);
       if (result) {
-        setOrderSelected(result)
-        openModal()
-      };
+        setOrderSelected(result);
+        openModal();
+      }
       return;
-    };
-    <ErrorMessage status={500} />
+    }
+    <ErrorMessage status={500} />;
   };
 
   useEffect(() => {
@@ -89,7 +89,9 @@ export default function DeliveredOrders() {
   return (
     <div>
       <div>
-        <h2 className='text-decoration-underline'>Entrega de Ordenes</h2>
+        <h3 className='text-decoration-underline pt-4 mb-3'>
+          Entrega de Ordenes
+        </h3>
       </div>
       {orderSelected && (
         <div className='d-flex justify-content-end mb-3'>
@@ -100,16 +102,16 @@ export default function DeliveredOrders() {
           />
         </div>
       )}
-      <div className='table-responsive'>
-        <table className='table table-hover  '>
+      <div className='table-responsive '>
+        <table className='table table-hover'>
           <thead>
-            <tr className='table-primary'>
-              <th scope='col'>N°Ticket</th>
+            <tr className='table-secondary'>
+              <th scope='col'>N° Ticket</th>
               <th scope='col'></th>
               <th scope='col'></th>
               <th scope='col'></th>
-              <th scope='col'>Fecha de creacion</th>
-              <th scope='col'>Description</th>
+              <th scope='col'>Fecha de creación</th>
+              <th scope='col'>Descripcion</th>
               <th scope='col'>Total</th>
               <th scope='col'></th>
               <th scope='col'></th>
@@ -122,13 +124,13 @@ export default function DeliveredOrders() {
               <th scope='col'></th>
               <th scope='col'></th>
               <th scope='col'></th>
-              <th scope='col'>Status</th>
+              <th scope='col'>Estado</th>
             </tr>
           </thead>
           <tbody>
             {ordersFilter.map(p => {
               return (
-                <tr className='table-info' key={p.id}>
+                <tr className='table-light' key={p.id}>
                   <th scope='row'>{p.code}</th>
                   <th scope='row'></th>
                   <th scope='row'></th>
@@ -149,7 +151,12 @@ export default function DeliveredOrders() {
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td style={{ cursor: "pointer" }} onClick={() => watchOrderDetail(p.id)}>Ver</td>
+                  <td
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => watchOrderDetail(p.id)}
+                  >
+                    Ver
+                  </td>
                   <td></td>
                   <td>
                     <button

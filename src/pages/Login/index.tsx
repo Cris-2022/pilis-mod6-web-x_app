@@ -42,7 +42,7 @@ export function Login() {
             <button className='btn-form'>Iniciar Sesión</button>
           </form>
           <Link to='/'>
-            <button className='btn btn-info'>Volver al Inicio</button>
+            <button className='back bg-info'>Volver al Inicio</button>
           </Link>
         </div>
       </div>

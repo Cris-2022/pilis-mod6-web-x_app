@@ -52,7 +52,7 @@ color: rgb(241, 241, 241);
 .head-prod{
     margin-right: 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     color:#4d4a95;
 }
 
@@ -62,7 +62,7 @@ color: rgb(241, 241, 241);
   font-style: italic;  
 } */
 
-h4{
+.title-crud{
   padding-top: 7px;
   display: flex;
   align-content: end;

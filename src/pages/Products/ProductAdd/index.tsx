@@ -10,9 +10,7 @@ import { SelectCategory } from '../components/SelectCategory';
 import { FormValues } from './typesProductForm';
 import ErrorMessage from './ErrorMessage';
 
-
 export default function ProductAdd() {
-
   const { tokens } = useContext(UserContext);
   const { dispatch } = useContext(ProductContex);
   const { register, handleSubmit, control } = useForm<FormValues>({});
@@ -21,13 +19,12 @@ export default function ProductAdd() {
     dispatch({ type: ACTIONS.LOADING });
     if (tokens) {
       if (data.categories) {
-
         const dataProduct: FormValues = {
           name: data.name,
           category: data.categories.value,
           price: data.price,
           image: data.image,
-          stock: data.stock
+          stock: data.stock,
         };
         const product: ProductFormData = {
           ...dataProduct,
@@ -38,22 +35,17 @@ export default function ProductAdd() {
         const { isError, result } = await addProduct(token, product);
         if (isError) {
           dispatch({ type: ACTIONS.ERROR });
-          return (
-            <ErrorMessage status={100} />
-          )
+          return <ErrorMessage status={100} />;
         }
         dispatch({
           type: ACTIONS.ADDPRODUCT,
-          product: result
+          product: result,
         });
-        alert("Porducto Creado");
+        alert('Porducto Creado');
       }
-    };
-    return (
-      <ErrorMessage status={400} />
-    )
+    }
+    return <ErrorMessage status={400} />;
   };
-  
 
   return (
     <div className='sign-in-container'>
@@ -61,7 +53,7 @@ export default function ProductAdd() {
         <span>Nombre del producto</span>
         <input
           {...register('name', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='text'
           placeholder='ej: Nueva hamburguesa Dibu'
         />
@@ -70,26 +62,22 @@ export default function ProductAdd() {
         <span>Ingrese precio</span>
         <input
           {...register('price', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='text'
         />
         <span>Ingresar nuevo Stock</span>
         <input
           {...register('stock', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='number'
         />
         <span>Cambiar imagen</span>
-        <input
-          {...register('image')}
-          className='input-form'
-          type='file'
-        />
+        <input {...register('image')} className='input-form' type='file' />
         <button className='btn-form'>Guardar cambios</button>
       </form>
       <Link to='/products'>
-        <button className='back'>Volver</button>
+        <button className='back bg-info'>Volver</button>
       </Link>
     </div>
   );
-};
+}

@@ -11,39 +11,36 @@ import ErrorMessage from './ErrorMessage';
 import { SelectCategory } from '../components/SelectCategory';
 import { FormValues } from '../ProductAdd/typesProductForm';
 
-
 export default function ProductUpdate() {
-
   const { tokens } = useContext(UserContext);
   const { dispatch } = useContext(ProductContex);
-  const { register, handleSubmit, reset, control, setValue } = useForm<FormValues>({});
+  const { register, handleSubmit, reset, control, setValue } =
+    useForm<FormValues>({});
 
-  const params = useParams()
-  const navigate = useNavigate()
+  const params = useParams();
+  const navigate = useNavigate();
 
-  const productId = params.id
+  const productId = params.id;
   useEffect(() => {
     const getDefaultValue = async () => {
       if (productId) {
-        const product = await getProduct(productId)
-        const { result } = product
+        const product = await getProduct(productId);
+        const { result } = product;
         if (result) {
           const defaultValues = {
             name: result.name,
             category: result.category,
             price: result.price,
             stock: result.stock,
-          }
-          reset(defaultValues)
+          };
+          reset(defaultValues);
           // setValue("categories", defaultValues.category)
         }
-      };
-      (
-        <ErrorMessage status={100} />
-      )
+      }
+      <ErrorMessage status={100} />;
     };
-    getDefaultValue()
-  }, [reset, setValue])
+    getDefaultValue();
+  }, [reset, setValue]);
 
   const onSubmit: SubmitHandler<FormValues> = async data => {
     dispatch({ type: ACTIONS.LOADING });
@@ -58,16 +55,15 @@ export default function ProductUpdate() {
         if (isError) {
           alert(JSON.stringify(isError));
           return dispatch({ type: ACTIONS.ERROR });
-        };
+        }
         dispatch({
-          type: ACTIONS.UPDATE_PRODUCT
+          type: ACTIONS.UPDATE_PRODUCT,
         });
-        alert("Producto Actualizado");
+        alert('Producto Actualizado');
       }
     }
-    navigate("/products")
+    navigate('/products');
   };
-
 
   return (
     <div className='sign-in-container'>
@@ -75,7 +71,7 @@ export default function ProductUpdate() {
         <span>Nombre del producto</span>
         <input
           {...register('name', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='text'
           placeholder='ej: Nueva hamburguesa Dibu'
         />
@@ -84,13 +80,13 @@ export default function ProductUpdate() {
         <span>Ingrese precio</span>
         <input
           {...register('price', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='text'
         />
         <span>Ingresar nuevo Stock</span>
         <input
           {...register('stock', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='number'
         />
         <span>Cambiar imagen</span>
@@ -103,7 +99,7 @@ export default function ProductUpdate() {
         <button className='btn-form'>Guardar cambios</button>
       </form>
       <Link to='/products'>
-        <button className='back'>Volver</button>
+        <button className='back bg-info'>Volver</button>
       </Link>
     </div>
   );

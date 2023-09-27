@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import './Producto.css';
-import { Row } from 'react-bootstrap';
 
 interface Props {
   nombre: string;
@@ -22,30 +21,30 @@ const Producto = ({
   const navigate = useNavigate();
 
   const editProduct = () => {
-    navigate(`/product/${productId}`)
+    navigate(`/product/${productId}`);
   };
 
   return (
-
-    <Row className="container justify-content-md-center">
-    <div className="card text-black mb-3 bg-light" Style="max-width: 20rem;">
-
-      <h4>{nombre}</h4>
+    <article
+      className='card bg-secondary col-lg-4 col-md-6 col-xl-3 border-5'
+      style={{ width: '18rem;', backgroundColor: '#8F78C6' }}
+    >
+      <h5 className='mt-2'>{nombre}</h5>
 
       <div className='card-image-container'>
-        <img className='card-image' src={img} alt={`imagen - ${nombre}`} />
+        <img className='card-image mt-2' src={img} alt={`imagen - ${nombre}`} />
       </div>
-
-      <p className='cookieDescription'>Categoría: {categoria}</p>
-      <p className='cookieHeading'>Precio: $ {precio} </p>
+      <h6 className='mt-3'>Categoría: {categoria}</h6>
+      <h5 className='text-success precio-prod'>Total: $ {precio} </h5>
       <div className='card-footer'>
-        <button className='editButton' onClick={editProduct}>Editar</button>
+        <button className='editButton' onClick={editProduct}>
+          Editar
+        </button>
         <button className='deleButton' onClick={() => deleteProduct(productId)}>
           Eliminar
         </button>
       </div>
-    </div>
-    </Row>
+    </article>
   );
 };
 
