@@ -1,12 +1,17 @@
 import { Outlet } from 'react-router-dom';
-import Footer from '../components/Footer';
 import Header from './Header';
+import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
+import Estados from '@/pages/Orders/components/Estados';
+
 
 export default function AdminLayouts() {
   return (
     <>
       <Header />
-      <Outlet />
+          <main className='container'>
+             <Outlet />
+          </main>
       <Footer />
     </>
   );

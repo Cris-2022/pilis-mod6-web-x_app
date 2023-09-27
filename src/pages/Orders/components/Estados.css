@@ -10,12 +10,16 @@
     
   } */
   
-  .panel-title{
+/*   .panel-title{
     display: flex;
     margin-top: 30px;
     justify-content: center;
     color: white;
     margin-bottom: 30px;
-  }
+  } */
 
-
+.set-menu{
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

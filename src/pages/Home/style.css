@@ -1,6 +1,6 @@
 /* ESLIDER */
 
-.automatic {
+/* .automatic {
   display: flex;
   width: 100vw;
   height: 55vh;
@@ -40,7 +40,7 @@
   100% {
     transform: translateX(-300%);
   }
-}
+} */
 
 /* TARJETAS */
 
@@ -54,4 +54,19 @@
   margin: 0px;
   padding: 0px;
   background-color: #fbfafb;
+}
+
+
+.slide-xapp{
+  display: flex;
+  padding-left: 10px;
+  justify-content: center;
+}
+
+.test{
+  display: flex;
+  color: rgb(203, 41, 154);
+  font-size: x-large;
+  text-align: center;
+  justify-content: center;
 }

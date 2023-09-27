@@ -75,15 +75,13 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
   const updateState = useOrderCard(id);
 
   return (
-    <div className="card" style={{ width: "18rem;", backgroundColor: "#8F78C6" }}>
-      <h2> <u>Ticket N°: {code}</u></h2>
+    <div className="card bg-secondary" style={{ width: "18rem;", backgroundColor: "#8F78C6" }}>
+      <h4> <u>TICKET Cod:  {code}</u></h4>
       <h2></h2>
       <h2></h2>
-      <h2></h2>
-      <h2></h2>
-      <h4>DETALLE: {description.join(" ,")} </h4>
+      <h5>DETALLE: {description.join(" ,")} </h5>
       {/* <h4>Estado: {estado}</h4> */}
-      <h3>Total: ${total} </h3>
+      <h3>Total: $ {total} </h3>
       <div className="card-body">
         <Message status={estado}>
           <Case status={STATUS.PENDING}>
@@ -99,7 +97,7 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
               onClick={() => updateState(STATUS.PROCESSED)}
               className='button button--finish btn btn-success'
             >
-              finalizar
+              Finalizar
             </button>
           </Case>
           <Case className='button button--disable' status={STATUS.FINISHED}>

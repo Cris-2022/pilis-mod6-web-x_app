@@ -52,14 +52,14 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
   }, [orders, filteredStatus]);
 
   return (
-    <div className='container bg-light'>
+    <div className='container bg-white'>
       <div className='head-prod'>
-        <p className='set-p'>Gestione las ordenes desde aquí.</p>
+        <p className='set-p'></p>
         <IsLoading />
 
         <h3>Gestión de Ordenes</h3>
       </div>
-      <div className='grid'>
+      <div className='row row-col2-2'>
         {
           (filteredOrders.length > 0)
             ?

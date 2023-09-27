@@ -18,20 +18,21 @@ export function Login() {
     <div className="card text-white bg-dark mb-3" Style="max-width: 30rem;">      
       <div className="card-body">       
         {isLogin && <Navigate to='/orders' replace />}
-      {isLoading && <h5>cargando...</h5>}
+      {isLoading && <h5 className='text-info'>Verificando...</h5>}
+      
       {isError && <ErrorMessage status={status!} />}
 
       <form onSubmit={handleSubmit(onSubmit)} className='sign-in-form'>
         <h5>Ingresar usuario y contraseña</h5>
         <input
           {...register('username', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='text'
           placeholder='admin'
         />
         <input
           {...register('password', { required: true })}
-          className='input-form'
+          className='input-form bg-white'
           type='password'
           placeholder='************'
         />

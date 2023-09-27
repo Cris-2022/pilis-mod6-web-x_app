@@ -10,10 +10,8 @@ interface EstadosProps {
 const Estados: React.FC<EstadosProps> = ({ handleStatus }) => {
 
   return (
-    <Row>
-    <div className='text-black bg-secondary tag'>
-      <h5 className='panel-title'>Estados</h5>
-
+    <div className=''>
+    <div className='set-menu text-black max-vh-100 d-flex flex-column'>
 
       {estados.map(tag => (
         <Estado
@@ -24,7 +22,7 @@ const Estados: React.FC<EstadosProps> = ({ handleStatus }) => {
         />
       ))}
     </div>
-    </Row>
+    </div>
 
   );
 };

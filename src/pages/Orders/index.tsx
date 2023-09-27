@@ -11,9 +11,13 @@ const Orders = () => {
   };
 
   return (
-    <div className='main-container'>
+    <div className='container'>
+      <div className='d-flex flex-row bg-light mb-2'> 
+      
       <Estados handleStatus={handleStatus} />
+
       <Ordenes filteredStatus={filteredStatus} />
+      </div>
     </div>
   );
 };
