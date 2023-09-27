@@ -56,14 +56,16 @@ color: rgb(241, 241, 241);
     color:#4d4a95;
 }
 
-.set-p{
+/* .set-p{
   margin-top: 4%;
   font-size: larger;
   font-style: italic;  
-}
+} */
 
-h3{
+h4{
+  padding-top: 7px;
   display: flex;
   align-content: end;
   font-style: italic;
+  text-decoration: underline;
 }

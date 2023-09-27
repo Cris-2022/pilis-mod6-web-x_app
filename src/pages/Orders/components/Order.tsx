@@ -19,7 +19,7 @@ interface Props {
   Fecha_hora: string;
   total: number;
   code: string;
-  description: string[]
+  description: string[];
 }
 
 function useOrderCard(id: string) {
@@ -71,22 +71,26 @@ function useOrderCard(id: string) {
   return updateStateOrder;
 }
 
-
 const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
   const updateState = useOrderCard(id);
 
   return (
-    <div className="card bg-secondary" style={{ width: "18rem;", backgroundColor: "#8F78C6" }}>
-      <h4> <u>TICKET Cod:  {code}</u></h4>
+    <article
+      className='card bg-secondary col-lg-4 col-md-6 col-xl-3 border-5'
+      style={{ width: '18rem;', backgroundColor: '#8F78C6' }}
+    >
+      <h5 className='text-info'>
+        <u>TICKET Cod: {code}</u>
+      </h5>
       <h2></h2>
       <h2></h2>
-      <h5>DETALLE: {description.join(" ,")} </h5>
+      <h6>DETALLE: {description.join(' ,')} </h6>
       {/* <h4>Estado: {estado}</h4> */}
-      <h3>Total: $ {total} </h3>
-      <div className="card-body">
+      <h4 className='text-success'>Total: $ {total} </h4>
+      <div className='card-body'>
         <Message status={estado}>
           <Case status={STATUS.PENDING}>
-            <button 
+            <button
               onClick={() => updateState(STATUS.PENDING)}
               className='button--processing btn btn-warning'
             >
@@ -94,7 +98,8 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
             </button>
           </Case>
           <Case status={STATUS.PROCESSED}>
-            <button type="button"
+            <button
+              type='button'
               onClick={() => updateState(STATUS.PROCESSED)}
               className='button button--finish btn btn-success'
             >
@@ -102,11 +107,11 @@ const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
             </button>
           </Case>
           <Case className='button button--disable' status={STATUS.FINISHED}>
-            finalizado
+            Finalizado
           </Case>
         </Message>
       </div>
-      </div>
+    </article>
   );
 };
 

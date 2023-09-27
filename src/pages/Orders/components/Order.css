@@ -1,4 +1,4 @@
-.cookieCard {
+/* .cookieCard {
   width: 250px;
   height: 320px;
   background: rgb(235, 191, 111);
@@ -10,8 +10,8 @@
   padding: 20px;
   position: relative;
   overflow: hidden;
-}
-
+} */
+/* 
 .cookieCard::before {
   width: 150px;
   height: 250px;
@@ -22,16 +22,16 @@
   border-radius: 50%;
   right: -25%;
   top: -25%;
-}
+} */
 
-.cookieHeading {
+/* .cookieHeading {
   font-size: 1.5em;
   font-weight: 600;
   color: rgb(8, 8, 8);
   z-index: 2;
-}
+} */
 
-.cookieDescription {
+/* .cookieDescription {
   font-size: 0.9em;
   color: rgb(13, 13, 13);
   z-index: 2;
@@ -39,7 +39,7 @@
 
 .cookieDescription a {
   color: rgb(15, 15, 15);
-}
+} */
 
 .editButton {
   padding: 11px 20px;

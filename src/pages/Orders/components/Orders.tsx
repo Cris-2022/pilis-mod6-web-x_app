@@ -8,15 +8,14 @@ import getOrders from '@/services/order/getOrders';
 import IsLoading from './IsLoading';
 import { Order } from '@/services/order/types';
 
-
 interface OrdersProps {
-  filteredStatus: string | null
-};
+  filteredStatus: string | null;
+}
 
 const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
   const { state, dispatch } = useContext(OrderContext);
   const { tokens } = useContext(UserContext);
-  const [filteredOrders, setFilteredOrders] = useState<Order[]>([])
+  const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
 
   const { orders } = state;
 
@@ -30,40 +29,38 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
 
         if (isError && !result) {
           return dispatch({ type: ACTIONS.ERROR });
-        };
+        }
         if (result)
           dispatch({
             type: ACTIONS.GET_ORDERS,
             payload: result,
           });
         [];
-      };
+      }
     };
     fetchOrders();
   }, []);
 
   useEffect(() => {
-    if (filteredStatus === "all") {
+    if (filteredStatus === 'all') {
       setFilteredOrders(orders);
     } else {
-      const filtered = orders.filter((order) => order.status === filteredStatus);
+      const filtered = orders.filter(order => order.status === filteredStatus);
       setFilteredOrders(filtered);
     }
   }, [orders, filteredStatus]);
 
   return (
-    <div className='container bg-white'>
+    <div className='container bg-light'>
       <div className='head-prod'>
         <p className='set-p'></p>
         <IsLoading />
 
-        <h3>Gestión de Ordenes</h3>
+        <h4>Gestión de Ordenes</h4>
       </div>
-      <div className='row row-col2-2'>
-        {
-          (filteredOrders.length > 0)
-            ?
-            filteredOrders.map(order => {
+      <div className='row'>
+        {filteredOrders.length > 0
+          ? filteredOrders.map(order => {
               return (
                 <Pedido
                   key={order.id}
@@ -79,8 +76,7 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
                 />
               );
             })
-            :
-            orders.map(order => {
+          : orders.map(order => {
               return (
                 <Pedido
                   key={order.id}
@@ -95,8 +91,7 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
                   )}
                 />
               );
-            })
-        }
+            })}
       </div>
     </div>
   );

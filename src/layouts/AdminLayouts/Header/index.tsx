@@ -23,7 +23,8 @@ export default function Header() {
         <Navbar.Link to='/tickets' label='Tickets' />
       </Navbar>
 
-      <Title>al servicio de: DELIVERY CHUY</Title>
+      <Title>Empresa: Comidas Rápidas</Title>
+      <h6>Fecha: {new Date().toLocaleDateString()}</h6>
 
       <User avatar={avatar} username={username} />
     </header>

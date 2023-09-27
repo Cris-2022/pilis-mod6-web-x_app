@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react';
 import Ordenes from '../Orders/components/Orders';
 import './Order.css';
 import Estados from './components/Estados';
@@ -12,11 +12,9 @@ const Orders = () => {
 
   return (
     <div className='container'>
-      <div className='d-flex flex-row bg-light mb-2'> 
-      
-      <Estados handleStatus={handleStatus} />
-
-      <Ordenes filteredStatus={filteredStatus} />
+      <div className='d-flex flex-row bg-light mb-2'>
+        <Estados handleStatus={handleStatus} />
+        <Ordenes filteredStatus={filteredStatus} />
       </div>
     </div>
   );
