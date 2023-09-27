@@ -71,6 +71,7 @@ function useOrderCard(id: string) {
   return updateStateOrder;
 }
 
+
 const Order = ({ id, Fecha_hora, estado, total, code, description }: Props) => {
   const updateState = useOrderCard(id);
 

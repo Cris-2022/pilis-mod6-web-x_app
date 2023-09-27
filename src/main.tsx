@@ -11,8 +11,7 @@ import { UserProvider } from './context/user/index.ts';
 import ProductProvider from './context/product/ProductProvider.tsx';
 import OrderProvider from './context/order/store/OrderProvider.tsx';
 import TicketProvider from './pages/Tickets/context/TicketProvider.tsx';
-/* import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js'; */
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
