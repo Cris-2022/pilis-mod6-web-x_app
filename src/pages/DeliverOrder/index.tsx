@@ -87,9 +87,9 @@ export default function DeliveredOrders() {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h3 className='text-decoration-underline pt-4 mb-3'>
+    <div className='container'>
+      <div className='d-flex flex-row bg-light'>
+        <h3 className='text-decoration-underline pt-4 mb-3 ps-3 text-secondary'>
           Entrega de Ordenes
         </h3>
       </div>
@@ -102,7 +102,7 @@ export default function DeliveredOrders() {
           />
         </div>
       )}
-      <div className='table-responsive '>
+      <div className='table-responsive d-flex flex-row bg-secondary mb-5 pb-5'>
         <table className='table table-hover'>
           <thead>
             <tr className='table-secondary'>
@@ -121,23 +121,25 @@ export default function DeliveredOrders() {
               <th scope='col'></th>
               <th scope='col'></th>
               <th scope='col'></th>
-              <th scope='col'></th>
-              <th scope='col'></th>
-              <th scope='col'></th>
               <th scope='col'>Estado</th>
+
+              <th scope='col'>Acciones</th>
+              <th scope='col'></th>
             </tr>
           </thead>
           <tbody>
             {ordersFilter.map(p => {
               return (
-                <tr className='table-light' key={p.id}>
-                  <th scope='row'>{p.code}</th>
+                <tr className='table-light text-black' key={p.id}>
+                  <th scope='row' className='text-black'>
+                    {p.code}
+                  </th>
                   <th scope='row'></th>
                   <th scope='row'></th>
                   <th scope='row'></th>
-                  <td>{p.updateAt.slice(0, 10)}</td>
-                  <td>{p.detail[0].description}</td>
-                  <td>
+                  <td className='text-black'>{p.updateAt.slice(0, 10)}</td>
+                  <td className='text-black'>{p.detail[0].description}</td>
+                  <td className='text-black'>
                     {p.detail.reduce(
                       (total, price) => total + Number(price.subTotal),
                       0,
@@ -151,24 +153,23 @@ export default function DeliveredOrders() {
                   <td></td>
                   <td></td>
                   <td></td>
+                  <td>
+                    <span className='text-black'>Finalizado</span>
+                  </td>
                   <td
                     style={{ cursor: 'pointer' }}
                     onClick={() => watchOrderDetail(p.id)}
                   >
-                    Ver
+                    <button className='btn btn-info'>Ver detalle</button>
                   </td>
-                  <td></td>
+
                   <td>
                     <button
-                      className='btn btn-info'
+                      className='btn btn-success'
                       onClick={() => handleDelivered(p.id)}
                     >
                       Entregar
                     </button>
-                  </td>
-
-                  <td>
-                    <span className='text-danger'>Finalizado</span>
                   </td>
                 </tr>
               );
