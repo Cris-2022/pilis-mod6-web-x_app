@@ -15,7 +15,7 @@ const STATUS = {
 
 interface Props {
   id: string;
-  estado: 'processed' | 'finished';
+  estado: 'pending' | 'processed' | 'finished';
   Fecha_hora: string;
   total: number;
   code: string;

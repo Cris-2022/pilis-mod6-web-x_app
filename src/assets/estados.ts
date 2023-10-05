@@ -14,9 +14,4 @@ export const estados = [
         nombre: "Procesadas",
         status: "processed"
     },
-    {
-        id: 4,
-        nombre: "Finalizadas",
-        status: "finished"
-    }
 ];
