@@ -9,7 +9,7 @@ export interface OrderDetail {
 export interface Order {
   id: string;
   code: string;
-  status: 'processed' | 'finished';
+  status: "pending" |'processed' | 'finished';
   isDelivered: boolean;
   isExpired: boolean;
   createdAt: string;

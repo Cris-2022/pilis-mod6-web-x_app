@@ -18,6 +18,7 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
   const [filteredOrders, setFilteredOrders] = useState<Order[]>([]);
 
   const { orders } = state;
+  const ordersPendingAndProcessed = orders.filter(order => order.status !== "finished");
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -29,25 +30,50 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
 
         if (isError && !result) {
           return dispatch({ type: ACTIONS.ERROR });
-        }
-        if (result)
+        };
+        if (result && result.length > 0) {
           dispatch({
             type: ACTIONS.GET_ORDERS,
             payload: result,
           });
-        [];
-      }
+          const ordersPendingAndProcessed = result.filter(order => order.status !== "finished")
+          setFilteredOrders(ordersPendingAndProcessed)
+        };
+      };
     };
     fetchOrders();
   }, []);
 
   useEffect(() => {
     if (filteredStatus === 'all') {
-      setFilteredOrders(orders);
-    } else {
-      const filtered = orders.filter(order => order.status === filteredStatus);
-      setFilteredOrders(filtered);
-    }
+      if (ordersPendingAndProcessed.length > 0) {
+        setFilteredOrders(ordersPendingAndProcessed);
+      } else {
+        alert("No hay ordenes activas");
+        setFilteredOrders([]);
+      };
+    };
+    
+    if (filteredStatus === 'pending') {
+      const filterPendig = orders.filter(order => order.status === filteredStatus);
+      if (filterPendig.length > 0) {
+        setFilteredOrders(filterPendig);
+      } else {
+        setFilteredOrders([])
+        alert("No hay ordenes pendientes");
+      };
+    };
+
+    if (filteredStatus === 'processed') {
+      const filterProcessed = orders.filter(order => order.status === "processed");
+      if (filterProcessed.length > 0) {
+        setFilteredOrders(filterProcessed);
+      }
+      else {
+        setFilteredOrders([]);
+        alert("No hay ordenes procesadas");
+      };
+    };
   }, [orders, filteredStatus]);
 
   return (
@@ -60,38 +86,22 @@ const Orders: React.FC<OrdersProps> = ({ filteredStatus }) => {
       </div>
       <div className='row'>
         {filteredOrders.length > 0
-          ? filteredOrders.map(order => {
-              return (
-                <Pedido
-                  key={order.id}
-                  id={order.id}
-                  code={order.code}
-                  description={order.detail.map(detail => detail.description)}
-                  Fecha_hora={new Date(order.createdAt).toLocaleTimeString()}
-                  estado={order.status}
-                  total={order.detail.reduce(
-                    (total, order) => total + Number(order.subTotal),
-                    0,
-                  )}
-                />
-              );
-            })
-          : orders.map(order => {
-              return (
-                <Pedido
-                  key={order.id}
-                  id={order.id}
-                  code={order.code}
-                  description={order.detail.map(detail => detail.description)}
-                  Fecha_hora={new Date(order.createdAt).toLocaleTimeString()}
-                  estado={order.status}
-                  total={order.detail.reduce(
-                    (total, order) => total + Number(order.subTotal),
-                    0,
-                  )}
-                />
-              );
-            })}
+          && filteredOrders.map(order => {
+            return (
+              <Pedido
+                key={order.id}
+                id={order.id}
+                code={order.code}
+                description={order.detail.map(detail => detail.description)}
+                Fecha_hora={new Date(order.createdAt).toLocaleTimeString()}
+                estado={order.status}
+                total={order.detail.reduce(
+                  (total, order) => total + Number(order.subTotal),
+                  0,
+                )}
+              />
+            );
+          })}
       </div>
     </div>
   );
