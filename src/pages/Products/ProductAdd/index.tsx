@@ -9,6 +9,8 @@ import { ProductFormData, addProduct } from '@/services/products';
 import { SelectCategory } from '../components/SelectCategory';
 import { FormValues } from './typesProductForm';
 import ErrorMessage from './ErrorMessage';
+import Swal from 'sweetalert2';
+
 
 export default function ProductAdd() {
   const { tokens } = useContext(UserContext);
@@ -35,15 +37,33 @@ export default function ProductAdd() {
         const { isError, result } = await addProduct(token, product);
         if (isError) {
           dispatch({ type: ACTIONS.ERROR });
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Ocurrio un error!',
+          })
           return <ErrorMessage status={100} />;
-        }
-        dispatch({
-          type: ACTIONS.ADDPRODUCT,
-          product: result,
+        };
+        const getResult = result;
+        Swal.fire({
+          title: 'Quieres agregar este producto?',
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'Save',
+          denyButtonText: `Don't save`,
+        }).then((result) => {
+          dispatch({
+            type: ACTIONS.ADDPRODUCT,
+            product: getResult!,
+          });
+          if (result.isConfirmed) {
+            Swal.fire('Producto creado!', '', 'success')
+          } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+          };
         });
-        alert('Porducto Creado');
-      }
-    }
+      };
+    };
     return <ErrorMessage status={400} />;
   };
 
@@ -73,7 +93,12 @@ export default function ProductAdd() {
         />
         <span>Cambiar imagen</span>
         <input {...register('image')} className='input-form' type='file' />
-        <button className='btn-form'>Guardar cambios</button>
+        <button
+          type="submit"
+          className='btn-form'
+        >
+          Guardar cambios
+        </button>
       </form>
       <Link to='/products'>
         <button className='back bg-info'>Volver</button>

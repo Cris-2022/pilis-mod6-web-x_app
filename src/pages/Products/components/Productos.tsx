@@ -6,6 +6,9 @@ import { ACTIONS } from '@/context/product/reducer/actions';
 import { UserContext } from '@/context/user';
 import deleteProduct from '@/services/products/deleteProduct';
 import './Productos.css';
+import Swal from 'sweetalert2';
+import IsLoading from './IsLoading';
+
 
 interface ProductsProps {
   filteredCategory: string | null;
@@ -34,6 +37,40 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
     };
   };
 
+  const handleDelete = async (id: string) => {
+    dispatch({ type: ACTIONS.LOADING });
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(async (result) => {
+      if (result.isConfirmed && tokens) {
+        const token = tokens.bearer_token;
+        const { isError } = await deleteProduct(token, id);
+        if (isError) {
+          alert('Error');
+          return dispatch({ type: ACTIONS.ERROR });
+        }
+        else {
+          dispatch({
+            type: ACTIONS.DELETEPRODUCT,
+            payload: id,
+          });
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          );
+        };
+      };
+    });
+  };
+
   useEffect(() => {
     fetchProduct();
   }, []);
@@ -43,7 +80,7 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
       if (product.length > 0) {
         setProductFiltered(product)
       } else {
-        alert("No hay stock de productos")
+        setProductFiltered([])
       };
     };
 
@@ -53,7 +90,6 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
         setProductFiltered(sandwiches)
       } else {
         setProductFiltered([])
-        alert("No hay productos relacionados a SANDWICHES")
       };
     };
 
@@ -63,7 +99,6 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
         setProductFiltered(hamburguesas);
       } else {
         setProductFiltered([]);
-        alert("No hay productos relacionados a HAMBURGUESAS");
       };
     };
 
@@ -73,7 +108,6 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
         setProductFiltered(pizzas);
       } else {
         setProductFiltered([]);
-        alert("No hay productos relacionados a PIZZAS");
       };
     };
 
@@ -83,7 +117,6 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
         setProductFiltered(bebidas);
       } else {
         setProductFiltered([]);
-        alert("No hay productos relacionados a BEBIDAS");
       };
     };
 
@@ -93,33 +126,17 @@ const Productos = ({ filteredCategory }: ProductsProps) => {
         setProductFiltered(postres);
       } else {
         setProductFiltered([]);
-        alert("No hay productos relacionados a POSTRES");
       };
     };
   }, [product, filteredCategory]);
 
-  const handleDelete = async (id: string) => {
-    dispatch({ type: ACTIONS.LOADING });
-    if (tokens) {
-      const token = tokens.bearer_token;
-      const { isError } = await deleteProduct(token, id);
-      if (isError) {
-        alert('Error');
-        return dispatch({ type: ACTIONS.ERROR });
-      }
-      dispatch({
-        type: ACTIONS.DELETEPRODUCT,
-        payload: id,
-      });
-      alert('Producto eliminado');
-    }
-  };
 
   return (
     <div className='container bg-light'>
       <div className='head-prod'>
         <p className='set-p'></p>
         <h4 className='title-crud'>Gestión de Productos</h4>
+        <IsLoading/>
       </div>
 
       <div className='row p-2'>
